@@ -1,0 +1,16 @@
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\obj\Debug\netstandard2.0\DakiApp.domain.csproj.CoreCompileInputs.cache
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\obj\Debug\netstandard2.0\DakiApp.domain.AssemblyInfoInputs.cache
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\obj\Debug\netstandard2.0\DakiApp.domain.AssemblyInfo.cs
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\bin\Debug\netstandard2.0\DakiApp.domain.deps.json
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\bin\Debug\netstandard2.0\DakiApp.domain.dll
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\bin\Debug\netstandard2.0\DakiApp.domain.pdb
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\obj\Debug\netstandard2.0\DakiApp.domain.dll
+C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.domain\obj\Debug\netstandard2.0\DakiApp.domain.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\bin\Debug\netstandard2.0\DakiApp.Domain.deps.json
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\bin\Debug\netstandard2.0\DakiApp.Domain.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\bin\Debug\netstandard2.0\DakiApp.Domain.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\obj\Debug\netstandard2.0\DakiApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\obj\Debug\netstandard2.0\DakiApp.Domain.AssemblyInfoInputs.cache
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\obj\Debug\netstandard2.0\DakiApp.Domain.AssemblyInfo.cs
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\obj\Debug\netstandard2.0\DakiApp.Domain.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Domain\obj\Debug\netstandard2.0\DakiApp.Domain.pdb

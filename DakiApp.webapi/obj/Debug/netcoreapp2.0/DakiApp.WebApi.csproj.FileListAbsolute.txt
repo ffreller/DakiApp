@@ -1,0 +1,14 @@
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.WebApi\obj\Debug\netcoreapp2.0\DakiApp.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.WebApi\obj\Debug\netcoreapp2.0\DakiApp.WebApi.AssemblyInfoInputs.cache
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.WebApi\obj\Debug\netcoreapp2.0\DakiApp.WebApi.AssemblyInfo.cs
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.deps.json
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.runtimeconfig.json
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.runtimeconfig.dev.json
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.domain.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.repository.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.domain.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.repository.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.pdb
