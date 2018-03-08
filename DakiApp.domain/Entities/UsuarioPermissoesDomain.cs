@@ -16,5 +16,5 @@ namespace DakiApp.domain.Entities
         public PermissoesDomain Permissao { get; set; }
         public int PermissaoId { get; set; }
     }
-    }
+    
 }
