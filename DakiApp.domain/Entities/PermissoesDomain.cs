@@ -8,6 +8,8 @@ namespace DakiApp.domain.Entities
 {
     public class PermissoesDomain : BaseDomain
     {
-        
+        [Required]
+        [StringLength(50)]
+        public string Nome { get; set; }
     }
 }
