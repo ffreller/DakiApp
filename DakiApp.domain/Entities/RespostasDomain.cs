@@ -9,9 +9,7 @@ namespace DakiApp.domain.Entities
     public class RespostasDomain : BaseDomain
     {
         public string Resposta { get; set; }
-        
-        public ICollection<AlternativasDomain> Usuarios { get; set; }
-        
+              
         [ForeignKey("AlternativaId")]
         public QuestionariosDomain Alternativa { get; set; }
         public int AlternativaId { get; set; }
@@ -19,6 +17,8 @@ namespace DakiApp.domain.Entities
         [ForeignKey("PerguntaId")]
         public PerguntasDomain Pergunta { get; set; }
         public int PerguntaId { get; set; }
+
+        public ICollection<UsuariosDomain> Usuarios { get; set; }
 
 
     }

@@ -1659,7 +1659,7 @@
           "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore/2.0.0": {
+      "Microsoft.EntityFrameworkCore/2.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "2.0.0",
@@ -1702,11 +1702,11 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/2.0.0": {
+      "Microsoft.EntityFrameworkCore.Relational/2.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.4.0",
-          "Microsoft.EntityFrameworkCore": "2.0.0",
+          "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "2.0.0"
         },
         "compile": {
@@ -1736,10 +1736,10 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/2.0.0": {
+      "Microsoft.EntityFrameworkCore.SqlServer/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "2.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.1",
           "System.Data.SqlClient": "4.4.0"
         },
         "compile": {
@@ -4821,6 +4821,22 @@
         "runtime": {
           "bin/placeholder/DakiApp.domain.dll": {}
         }
+      },
+      "DakiApp.repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "DakiApp.domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DakiApp.repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DakiApp.repository.dll": {}
+        }
       }
     }
   },
@@ -6132,14 +6148,14 @@
         "microsoft.dotnet.platformabstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/2.0.0": {
-      "sha512": "wmgBEpjoxd6ElVh13dlzmsl/9BtE5lky97vutJxLwFopP0IuWAyclCC2WHoXq4bYRmtzYSpmA4Q/kNugynswSA==",
+    "Microsoft.EntityFrameworkCore/2.0.1": {
+      "sha512": "RlwInZHfIUWwFgQJCpUMKrLeE8QJ64MA/GxD881oTMFa9j7iiGKCtI0xK4J1NNgRKvgVDPJbh9CIGJiu0KEdeA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/2.0.0",
+      "path": "microsoft.entityframeworkcore/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
@@ -6167,14 +6183,14 @@
         "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/2.0.0": {
-      "sha512": "/Ay6EZXUZuPLCKdbLW59AuwCm+hqDgIxBzDTHIx6uEIvDFfC0Bs99CRL8Lgi1NgU9NOhFDmeRgE1goViru+Zgg==",
+    "Microsoft.EntityFrameworkCore.Relational/2.0.1": {
+      "sha512": "aZgfEDEzub+n9Kmsz/l4iiUHfB+R2iDDAFtW55OLpT7ANj7mS8k/bq8mqd60rVPgWKKy1l0+BK26ao4el/07lA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/2.0.0",
+      "path": "microsoft.entityframeworkcore.relational/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -6198,14 +6214,14 @@
         "microsoft.entityframeworkcore.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/2.0.0": {
-      "sha512": "mr+S07kAKXsdu9207w1ek4O1/0+y5925kMYy7gCqu15QpvfVXOLdAR0b9RQfBxmtAJPrYx6/KtfvAg70jm5zUA==",
+    "Microsoft.EntityFrameworkCore.SqlServer/2.0.1": {
+      "sha512": "+UnKJpkVpuNWRjF3BWSzbkQLL7gxY18Hnh5uXmlagO4Ua8BstqWIJaIUV+Ps2rw/2n62UPTQQV9RQWggV7OH9Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/2.0.0",
+      "path": "microsoft.entityframeworkcore.sqlserver/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -12654,11 +12670,17 @@
       "type": "project",
       "path": "../DakiApp.domain/DakiApp.domain.csproj",
       "msbuildProject": "../DakiApp.domain/DakiApp.domain.csproj"
+    },
+    "DakiApp.repository/1.0.0": {
+      "type": "project",
+      "path": "../DakiApp.repository/DakiApp.repository.csproj",
+      "msbuildProject": "../DakiApp.repository/DakiApp.repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "DakiApp.domain >= 1.0.0",
+      "DakiApp.repository >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Swashbuckle.AspNetCore >= 2.2.0"
@@ -12694,6 +12716,9 @@
           "projectReferences": {
             "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
               "projectPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
+            },
+            "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj": {
+              "projectPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj"
             }
           }
         }

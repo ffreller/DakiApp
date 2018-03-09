@@ -33,9 +33,9 @@ namespace DakiApp.domain.Entities
         [StringLength(500)]
         public string Descricao { get; set; }
 
-        // [ForeignKey("UsuarioId")]
-        // public UsuariosDomain Usuario { get; set; }
-        // [Required]
-        // public int UsuarioId { get; set; }
+        [ForeignKey("UsuarioId")]
+        public UsuariosDomain Usuario { get; set; }
+        [Required]
+        public int UsuarioId { get; set; }
     }
 }

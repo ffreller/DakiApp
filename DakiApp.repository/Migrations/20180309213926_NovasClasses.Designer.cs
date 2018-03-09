@@ -11,9 +11,10 @@ using System;
 namespace DakiApp.repository.Migrations
 {
     [DbContext(typeof(DakiAppContext))]
-    partial class DakiAppContextModelSnapshot : ModelSnapshot
+    [Migration("20180309213926_NovasClasses")]
+    partial class NovasClasses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +34,13 @@ namespace DakiApp.repository.Migrations
 
                     b.Property<int>("PerguntaId");
 
+                    b.Property<int?>("RespostasDomainid");
+
                     b.HasKey("id");
 
                     b.HasIndex("PerguntaId");
+
+                    b.HasIndex("RespostasDomainid");
 
                     b.ToTable("Alternativas");
                 });
@@ -71,11 +76,7 @@ namespace DakiApp.repository.Migrations
                         .IsRequired()
                         .HasMaxLength(200);
 
-                    b.Property<int>("UsuarioId");
-
                     b.HasKey("id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Anúncios");
                 });
@@ -205,11 +206,7 @@ namespace DakiApp.repository.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<int>("RespostaId");
-
                     b.HasKey("id");
-
-                    b.HasIndex("RespostaId");
 
                     b.ToTable("Usuarios");
                 });
@@ -220,14 +217,10 @@ namespace DakiApp.repository.Migrations
                         .WithMany("Alternativas")
                         .HasForeignKey("PerguntaId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
 
-            modelBuilder.Entity("DakiApp.domain.Entities.AnunciosDomain", b =>
-                {
-                    b.HasOne("DakiApp.domain.Entities.UsuariosDomain", "Usuario")
-                        .WithMany("Anuncios")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("DakiApp.domain.Entities.RespostasDomain")
+                        .WithMany("Usuarios")
+                        .HasForeignKey("RespostasDomainid");
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.QuestionarioPerguntasDomain", b =>
@@ -266,14 +259,6 @@ namespace DakiApp.repository.Migrations
                     b.HasOne("DakiApp.domain.Entities.UsuariosDomain", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("DakiApp.domain.Entities.UsuariosDomain", b =>
-                {
-                    b.HasOne("DakiApp.domain.Entities.RespostasDomain", "Resposta")
-                        .WithMany("Usuarios")
-                        .HasForeignKey("RespostaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
