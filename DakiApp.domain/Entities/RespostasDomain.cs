@@ -8,17 +8,20 @@ namespace DakiApp.domain.Entities
 {
     public class RespostasDomain : BaseDomain
     {
-        public string Resposta { get; set; }
+        public string Texto { get; set; }
               
         [ForeignKey("AlternativaId")]
-        public QuestionariosDomain Alternativa { get; set; }
-        public int AlternativaId { get; set; }
+        public AlternativasDomain Alternativa { get; set; }
+        public int? AlternativaId { get; set; }
 
         [ForeignKey("PerguntaId")]
         public PerguntasDomain Pergunta { get; set; }
         public int PerguntaId { get; set; }
 
-        public ICollection<UsuariosDomain> Usuarios { get; set; }
+        [ForeignKey("UsuarioId")]
+        public UsuariosDomain Usuario { get; set; }
+        [Required]
+        public int UsuarioId { get; set; }
 
 
     }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using DakiApp.domain.Entities;
+using System.Linq;
 
 namespace DakiApp.repository.Context
 {
@@ -20,6 +21,12 @@ namespace DakiApp.repository.Context
 
 
         protected override void OnModelCreating(ModelBuilder modelbuilder){
+
+            foreach (var relationship in modelbuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
             modelbuilder.Entity<PerguntasDomain>().ToTable("Perguntas");
             modelbuilder.Entity<AlternativasDomain>().ToTable("Alternativas");
             modelbuilder.Entity<QuestionariosDomain>().ToTable("Questionarios");

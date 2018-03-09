@@ -12,10 +12,9 @@ namespace DakiApp.domain.Entities
 
         public string Email { get; set; }
 
-        [ForeignKey("RespostaId")]
-        public RespostasDomain Resposta { get; set; }
-        [Required]
-        public int RespostaId { get; set; }
+        public string Senha { get; set; }
+
+        public ICollection<RespostasDomain> Respostas { get; set; }
 
         public ICollection<AnunciosDomain> Anuncios { get; set; }
     }
