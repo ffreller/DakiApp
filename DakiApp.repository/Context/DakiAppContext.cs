@@ -23,7 +23,11 @@ namespace DakiApp.repository.Context
             modelbuilder.Entity<PerguntasDomain>().ToTable("Perguntas");
             modelbuilder.Entity<AlternativasDomain>().ToTable("Alternativas");
             modelbuilder.Entity<QuestionariosDomain>().ToTable("Questionarios");
-            modelbuilder.Entity<QuestionarioPerguntasDomain>().ToTable("QuestionarioPerguntas");
+            modelbuilder.Entity<AnunciosDomain>().ToTable("Anúncios");
+            modelbuilder.Entity<PermissoesDomain>().ToTable("Permissões");
+            modelbuilder.Entity<RespostasDomain>().ToTable("Respostas");
+            modelbuilder.Entity<UsuarioPermissoesDomain>().ToTable("UsuarioPermissoes");
+            modelbuilder.Entity<UsuariosDomain>().ToTable("Usuarios");
             
             base.OnModelCreating(modelbuilder);
         }

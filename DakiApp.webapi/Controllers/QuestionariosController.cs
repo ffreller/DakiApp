@@ -52,7 +52,7 @@ namespace DakiApp.webapi.Controllers
                 questionario.Nome,
                 perguntas = questionario.QuestionarioPerguntas.Select(d => new {
                     d.Pergunta.id,
-                    d.Pergunta.DataCriacao,
+                    d.Pergunta.TipoResposta,
                     d.Pergunta.Enunciado,
                     Alternativas = d.Pergunta.Alternativas.Select(g => new {
                         g.id,

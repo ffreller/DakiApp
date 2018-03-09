@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DakiApp.domain.Entities
 {
-    public class UsuarioPermissoes  : BaseDomain
+    public class UsuarioPermissoesDomain  : BaseDomain
     {
         [ForeignKey("UsuarioId")]
         public UsuariosDomain Usuario { get; set; }
