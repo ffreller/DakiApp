@@ -18,3 +18,13 @@ C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Reposito
 C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.deps.json
 C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.dll
 C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.pdb
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.deps.json
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.dll
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.pdb
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.dll
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.pdb
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.csproj.CoreCompileInputs.cache
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfoInputs.cache
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfo.cs
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.dll
+C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.pdb
