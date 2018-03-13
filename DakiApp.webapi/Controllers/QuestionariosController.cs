@@ -64,10 +64,10 @@ namespace DakiApp.webapi.Controllers
                 .Include(d => d.QuestionarioPerguntas)
                 .ThenInclude(d => d.Pergunta.Alternativas)
                 .FirstOrDefault(d => d.id == id);
-                    if (questionario == null)
-                    {
-                        return NotFound("Id não encontrado");
-                    }
+                if (questionario == null)
+                {
+                    return NotFound("Id não encontrado");
+                }
             
                 var respostaJson = new {
                     questionario.id,
