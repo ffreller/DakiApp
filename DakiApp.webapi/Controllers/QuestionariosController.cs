@@ -25,8 +25,8 @@ namespace DakiApp.webapi.Controllers
         /// Lista todas os questionários cadastrados cadastrados
         /// </summary>
         /// <returns> Lista de questionários</returns>
-        /// <response code "200"> Retorna uma lista de cursos</response>
-        /// /// <response code "400"> Ocorreu um erro</response>
+        /// <response code="200"> Retorna uma lista de cursos</response>
+        /// <response code="400"> Ocorreu um erro</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -48,8 +48,8 @@ namespace DakiApp.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do questionário</param>
         /// <returns> Questionário de id indicado, com todas suas perguntas e todas as alternativas destas</returns>
-        /// <response code "200"> Retorna uma questionário, com seus detalhes</response>
-        /// /<response code "400"> Ocorreu um erro</response>
+        /// <response code="200"> Retorna uma questionário, com seus detalhes</response>
+        /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
         [HttpGet ("{id}")]
         // [ProducesResponseType(typeof(????), 200)]
@@ -101,8 +101,8 @@ namespace DakiApp.webapi.Controllers
         /// </summary>
         /// <param name="QuestionarioDomain">Questionário</param>
         /// <returns> ok </returns>
-        /// <response code "200"> Retorna ok </response>
-        ///  <response code "400"> Ocorreu um erro</response>
+        /// <response code="200"> Retorna ok </response>
+        ///  <response code="400"> Ocorreu um erro</response>
         [HttpPost]
         //[ProducesResponseType(typeof(), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -123,9 +123,9 @@ namespace DakiApp.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do questionário</param>
         /// <returns> ok </returns>
-        /// <response code "200"> Retorna uma lista de questionários</response>
-        /// <response code "400"> Ocorreu um erro</response>
-        /// <response code "404"> Id não encontrado</response>
+        /// <response code="200"> Retorna uma lista de questionários</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404"> Id não encontrado</response>
         [HttpPut ("{id}")]
         // [ProducesResponseType(typeof(), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -152,9 +152,9 @@ namespace DakiApp.webapi.Controllers
         /// </summary>
         /// <param name="id">Id do questionário</param>
         /// <returns> ok </returns>
-        /// <response code "200"> Retorna Ok</response>
-        /// <response code "400"> Ocorreu um erro</response>
-        /// <response code "404"> Id não encontrado</response>
+        /// <response code="200"> Retorna Ok</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404"> Id não encontrado</response>
         [HttpDelete ("{id}")]
         //[ProducesResponseType(typeof(), 200)]
         [ProducesResponseType(typeof(string), 400)]

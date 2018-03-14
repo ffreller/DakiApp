@@ -1,30 +1,10 @@
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.deps.json
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.dll
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.pdb
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.csproj.CoreCompileInputs.cache
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfoInputs.cache
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfo.cs
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.dll
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.pdb
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.dll
-C:\Users\33359624866\Desktop\backend\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.pdb
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\bin\Debug\netstandard2.0\DakiApp.Domain.dll
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\bin\Debug\netstandard2.0\DakiApp.Domain.pdb
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\obj\Debug\netstandard2.0\DakiApp.Repository.csproj.CoreCompileInputs.cache
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\obj\Debug\netstandard2.0\DakiApp.Repository.AssemblyInfoInputs.cache
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\obj\Debug\netstandard2.0\DakiApp.Repository.AssemblyInfo.cs
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\obj\Debug\netstandard2.0\DakiApp.Repository.dll
-C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.Repository\obj\Debug\netstandard2.0\DakiApp.Repository.pdb
 C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.deps.json
 C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.dll
 C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.pdb
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.deps.json
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.dll
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.repository.pdb
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.dll
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.pdb
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.csproj.CoreCompileInputs.cache
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfoInputs.cache
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfo.cs
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.dll
-C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\bin\Debug\netstandard2.0\DakiApp.domain.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.csproj.CoreCompileInputs.cache
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfoInputs.cache
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.AssemblyInfo.cs
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.dll
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.repository\obj\Debug\netstandard2.0\DakiApp.repository.pdb

@@ -18,9 +18,6 @@ namespace DakiApp.domain.Entities
         public string TipoResposta { get; set;}
 
         public ICollection<AlternativasDomain> Alternativas { get; set; }
-
-        public virtual ICollection<QuestionarioPerguntasDomain> QuestionarioPerguntas { get; set; }
-
        
     }
 }

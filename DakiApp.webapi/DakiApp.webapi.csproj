@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,8 +18,8 @@
     <ProjectReference Include="..\DakiApp.repository\DakiApp.repository.csproj" />
   </ItemGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug/AnyCPU'">
-    <DocumentationFile>bin\debugznetcoreapp2.0\DakiApp.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\DakiApp.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

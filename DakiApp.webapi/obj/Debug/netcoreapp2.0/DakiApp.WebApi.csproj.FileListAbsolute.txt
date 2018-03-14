@@ -26,3 +26,4 @@ C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.webapi\obj\D
 C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.AssemblyInfo.cs
 C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.dll
 C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.pdb
+C:\Users\40809588897\Desktop\Programar\Projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.xml

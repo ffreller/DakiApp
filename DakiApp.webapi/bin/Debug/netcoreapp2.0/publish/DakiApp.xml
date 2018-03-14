@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DakiApp.webapi</name>
+    </assembly>
+    <members>
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Listar">
+            <summary>
+            Lista todas os questionários cadastrados cadastrados
+            </summary>
+            <returns> Lista de questionários</returns>
+            <response code="200"> Retorna uma lista de cursos</response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.BuscarPorId(System.Int32)">
+            <summary>
+            Lista dados do questionário requisitado
+            </summary>
+            <param name="id">Id do questionário</param>
+            <returns> Questionário de id indicado, com todas suas perguntas e todas as alternativas destas</returns>
+            <response code="200"> Retorna uma questionário, com seus detalhes</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404">Id não encontrado</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Inserir(DakiApp.domain.Entities.QuestionariosDomain)">
+            <summary>
+            Cadastra novo questionário
+            </summary>
+            <param name="QuestionarioDomain">Questionário</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+             <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Atualizar(System.Int32)">
+            <summary>
+            Atualiza o questionário indicado
+            </summary>
+            <param name="id">Id do questionário</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna uma lista de questionários</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id não encontrado</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Deletar(System.Int32)">
+            <summary>
+            Deleta questionário indicado
+            </summary>
+            <param name="id">Id do questionário</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna Ok</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id não encontrado</response>
+        </member>
+    </members>
+</doc>
