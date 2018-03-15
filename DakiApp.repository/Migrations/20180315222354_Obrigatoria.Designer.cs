@@ -11,9 +11,10 @@ using System;
 namespace DakiApp.repository.Migrations
 {
     [DbContext(typeof(DakiAppContext))]
-    partial class DakiAppContextModelSnapshot : ModelSnapshot
+    [Migration("20180315222354_Obrigatoria")]
+    partial class Obrigatoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

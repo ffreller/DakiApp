@@ -12694,11 +12694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakIApp.webapi\\DakiApp.webapi.csproj",
       "projectName": "DakiApp.webapi",
-      "projectPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
+      "projectPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakIApp.webapi\\DakiApp.webapi.csproj",
       "packagesPath": "C:\\Users\\40809588897\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.webapi\\obj\\",
+      "outputPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakIApp.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -52,7 +52,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
         [HttpGet ("{id}")]
-        // [ProducesResponseType(typeof(????), 200)]
+        [ProducesResponseType(typeof(JsonResult), 200)]
         [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult BuscarPorId(int id)
@@ -76,6 +76,7 @@ namespace DakiApp.webapi.Controllers
                         d.Pergunta.id,
                         d.Pergunta.TipoResposta,
                         d.Pergunta.Enunciado,
+                        d.Pergunta.Obrigatoria,
                         Alternativas = d.Pergunta.Alternativas.Select(g => new {
                             g.id,
                             g.Conteudo,
@@ -104,7 +105,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
         [HttpPost]
-        //[ProducesResponseType(typeof(), 200)]
+        [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult Inserir([FromBody]QuestionariosDomain Questionarios)
         {
@@ -127,7 +128,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
         [HttpPut ("{id}")]
-        // [ProducesResponseType(typeof(), 200)]
+        [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
         public IActionResult Atualizar(int id)
@@ -156,7 +157,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
         [HttpDelete ("{id}")]
-        //[ProducesResponseType(typeof(), 200)]
+        [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
         public IActionResult Deletar(int id)

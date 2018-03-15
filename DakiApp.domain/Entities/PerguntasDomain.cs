@@ -16,6 +16,9 @@ namespace DakiApp.domain.Entities
         [Required]
         [StringLength(2)]
         public string TipoResposta { get; set;}
+        
+        [Required]
+        public bool Obrigatoria { get; set; }
 
         public ICollection<AlternativasDomain> Alternativas { get; set; }
        
