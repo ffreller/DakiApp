@@ -5,6 +5,7 @@ using DakiApp.domain.Entities;
 using DakiApp.repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DakiApp.webapi.Controllers
 {
@@ -27,6 +28,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de questionários</returns>
         /// <response code="200"> Retorna uma lista de cursos</response>
         /// <response code="400"> Ocorreu um erro</response>
+        [Authorize("Bearer",Roles="NOMEDAPERMISAAAOOOOOOOOOOOO")]
         [HttpGet]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
