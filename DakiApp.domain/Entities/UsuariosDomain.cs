@@ -8,10 +8,13 @@ namespace DakiApp.domain.Entities
 {   
     public class UsuariosDomain : BaseDomain
     {
+        [Required]
         public string Nome { get; set; }
 
+        [Required]
         public string Email { get; set; }
 
+        [Required]
         public string Senha { get; set; }
 
         public ICollection<RespostasDomain> Respostas { get; set; }

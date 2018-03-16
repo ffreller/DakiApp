@@ -5890,11 +5890,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
+      "projectUniqueName": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
       "projectName": "DakiApp.repository",
-      "projectPath": "c:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
+      "projectPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
       "packagesPath": "C:\\Users\\40809588897\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\obj\\",
+      "outputPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5911,8 +5911,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "c:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
-              "projectPath": "c:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
+            "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
+              "projectPath": "C:\\Users\\40809588897\\Desktop\\Programar\\Projeto\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
             }
           }
         }

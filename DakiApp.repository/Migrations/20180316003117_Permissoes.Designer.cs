@@ -11,8 +11,8 @@ using System;
 namespace DakiApp.repository.Migrations
 {
     [DbContext(typeof(DakiAppContext))]
-    [Migration("20180309215743_ClassesAjustadas")]
-    partial class ClassesAjustadas
+    [Migration("20180316003117_Permissoes")]
+    partial class Permissoes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -78,7 +78,7 @@ namespace DakiApp.repository.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Anúncios");
+                    b.ToTable("Anuncios");
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.PerguntasDomain", b =>
@@ -91,6 +91,8 @@ namespace DakiApp.repository.Migrations
                     b.Property<string>("Enunciado")
                         .IsRequired()
                         .HasMaxLength(100);
+
+                    b.Property<bool>("Obrigatoria");
 
                     b.Property<string>("TipoResposta")
                         .IsRequired()
@@ -114,7 +116,7 @@ namespace DakiApp.repository.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Permissões");
+                    b.ToTable("Permissoes");
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.QuestionarioPerguntasDomain", b =>
@@ -158,19 +160,23 @@ namespace DakiApp.repository.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AlternativaId");
+                    b.Property<int?>("AlternativaId");
 
                     b.Property<DateTime>("DataCriacao");
 
                     b.Property<int>("PerguntaId");
 
-                    b.Property<string>("Resposta");
+                    b.Property<string>("Texto");
+
+                    b.Property<int>("UsuarioId");
 
                     b.HasKey("id");
 
                     b.HasIndex("AlternativaId");
 
                     b.HasIndex("PerguntaId");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Respostas");
                 });
@@ -202,15 +208,16 @@ namespace DakiApp.repository.Migrations
 
                     b.Property<DateTime>("DataCriacao");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<int>("RespostaId");
+                    b.Property<string>("Senha")
+                        .IsRequired();
 
                     b.HasKey("id");
-
-                    b.HasIndex("RespostaId");
 
                     b.ToTable("Usuarios");
                 });
@@ -220,7 +227,7 @@ namespace DakiApp.repository.Migrations
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
                         .WithMany("Alternativas")
                         .HasForeignKey("PerguntaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.AnunciosDomain", b =>
@@ -228,7 +235,7 @@ namespace DakiApp.repository.Migrations
                     b.HasOne("DakiApp.domain.Entities.UsuariosDomain", "Usuario")
                         .WithMany("Anuncios")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.QuestionarioPerguntasDomain", b =>
@@ -236,25 +243,30 @@ namespace DakiApp.repository.Migrations
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
                         .WithMany()
                         .HasForeignKey("PerguntaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DakiApp.domain.Entities.QuestionariosDomain", "Questionario")
                         .WithMany("QuestionarioPerguntas")
                         .HasForeignKey("QuestionarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.RespostasDomain", b =>
                 {
-                    b.HasOne("DakiApp.domain.Entities.QuestionariosDomain", "Alternativa")
+                    b.HasOne("DakiApp.domain.Entities.AlternativasDomain", "Alternativa")
                         .WithMany()
                         .HasForeignKey("AlternativaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
                         .WithMany()
                         .HasForeignKey("PerguntaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DakiApp.domain.Entities.UsuariosDomain", "Usuario")
+                        .WithMany("Respostas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("DakiApp.domain.Entities.UsuarioPermissoesDomain", b =>
@@ -262,20 +274,12 @@ namespace DakiApp.repository.Migrations
                     b.HasOne("DakiApp.domain.Entities.PermissoesDomain", "Permissao")
                         .WithMany()
                         .HasForeignKey("PermissaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DakiApp.domain.Entities.UsuariosDomain", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("DakiApp.domain.Entities.UsuariosDomain", b =>
-                {
-                    b.HasOne("DakiApp.domain.Entities.RespostasDomain", "Resposta")
-                        .WithMany("Usuarios")
-                        .HasForeignKey("RespostaId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
