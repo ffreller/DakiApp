@@ -91,10 +91,6 @@ namespace DakiApp.webapi {
             app.UseSwagger ();
             app.UseSwaggerUI (c => { c.SwaggerEndpoint ("/swagger/v1/swagger.json", "DakiApp"); });
             app.UseMvc ();
-
-            app.Run (async (context) => {
-                await context.Response.WriteAsync ("Hello World!");
-            });
         }
     }
 }

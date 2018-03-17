@@ -1,4 +1,4 @@
-using System;
+/* using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -53,4 +53,4 @@ namespace DakiApp.webapi.Controllers
             return BadRequest(retornoerro);
         }
     }
-}
+} */
