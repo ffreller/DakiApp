@@ -23,9 +23,9 @@ namespace DakiApp.webapi.Controllers
         }
         
         /// <summary>
-        /// Lista todas os questionários cadastrados cadastrados
+        /// Lista todas os anúncios cadastrados cadastrados
         /// </summary>
-        /// <returns> Lista de questionários</returns>
+        /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de cursos</response>
         /// <response code="400"> Ocorreu um erro</response>
         [Authorize("Bearer",Roles="NOMEDAPERMISAAAOOOOOOOOOOOO")]
@@ -46,11 +46,11 @@ namespace DakiApp.webapi.Controllers
         }
 
         // /// <summary>
-        // /// Lista dados do questionário requisitado
+        // /// Lista dados do anúncio requisitado
         // /// </summary>
-        // /// <param name="id">Id do questionário</param>
+        // /// <param name="id">Id do anúncio</param>
         // /// <returns> Questionário de id indicado, com todas suas perguntas e todas as alternativas destas</returns>
-        // /// <response code="200"> Retorna uma questionário, com seus detalhes</response>
+        // /// <response code="200"> Retorna uma anúncio, com seus detalhes</response>
         // /// <response code="400"> Ocorreu um erro</response>
         // /// <response code="404">Id não encontrado</response>
         // [HttpGet ("{id}")]
@@ -95,12 +95,12 @@ namespace DakiApp.webapi.Controllers
 
             // var includes = new string[]{ "AnuncioPerguntas", "AnuncioPerguntas.Pergunta.Alternativas"};
             // return Ok(_repo.BuscarPorId(id,includes));
-        }
+        // }
 
         
 
         /// <summary>
-        /// Cadastra novo questionário
+        /// Cadastra novo anúncio
         /// </summary>
         /// <param name="AnuncioDomain">Questionário</param>
         /// <returns> ok </returns>
@@ -122,11 +122,11 @@ namespace DakiApp.webapi.Controllers
         }
 
         /// <summary>
-        /// Atualiza o questionário indicado
+        /// Atualiza o anúncio indicado
         /// </summary>
-        /// <param name="id">Id do questionário</param>
+        /// <param name="id">Id do anúncio</param>
         /// <returns> ok </returns>
-        /// <response code="200"> Retorna uma lista de questionários</response>
+        /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
         [HttpPut ("{id}")]
@@ -151,9 +151,9 @@ namespace DakiApp.webapi.Controllers
         }
 
         /// <summary>
-        /// Deleta questionário indicado
+        /// Deleta anúncio indicado
         /// </summary>
-        /// <param name="id">Id do questionário</param>
+        /// <param name="id">Id do anúncio</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna Ok</response>
         /// <response code="400"> Ocorreu um erro</response>

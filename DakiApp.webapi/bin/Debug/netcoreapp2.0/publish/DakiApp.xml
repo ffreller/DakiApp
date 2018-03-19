@@ -4,6 +4,43 @@
         <name>DakiApp.webapi</name>
     </assembly>
     <members>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Listar">
+            <summary>
+            Lista todas os anúncios cadastrados cadastrados
+            </summary>
+            <returns> Lista de anúncios</returns>
+            <response code="200"> Retorna uma lista de cursos</response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Inserir(DakiApp.domain.Entities.AnunciosDomain)">
+            <summary>
+            Cadastra novo anúncio
+            </summary>
+            <param name="AnuncioDomain">Questionário</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+             <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Atualizar(System.Int32)">
+            <summary>
+            Atualiza o anúncio indicado
+            </summary>
+            <param name="id">Id do anúncio</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna uma lista de anúncios</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id não encontrado</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Deletar(System.Int32)">
+            <summary>
+            Deleta anúncio indicado
+            </summary>
+            <param name="id">Id do anúncio</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna Ok</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id não encontrado</response>
+        </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Listar">
             <summary>
             Lista todas os questionários cadastrados cadastrados
