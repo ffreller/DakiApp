@@ -11,9 +11,10 @@ using System;
 namespace DakiApp.repository.Migrations
 {
     [DbContext(typeof(DakiAppContext))]
-    partial class DakiAppContextModelSnapshot : ModelSnapshot
+    [Migration("20180319221852_RespostasOK")]
+    partial class RespostasOK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +34,13 @@ namespace DakiApp.repository.Migrations
 
                     b.Property<int>("PerguntaId");
 
+                    b.Property<int>("RespostaId");
+
                     b.HasKey("id");
 
                     b.HasIndex("PerguntaId");
+
+                    b.HasIndex("RespostaId");
 
                     b.ToTable("Alternativas");
                 });
@@ -222,6 +227,11 @@ namespace DakiApp.repository.Migrations
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
                         .WithMany("Alternativas")
                         .HasForeignKey("PerguntaId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DakiApp.domain.Entities.RespostasDomain", "Resposta")
+                        .WithMany("Alternativas")
+                        .HasForeignKey("RespostaId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

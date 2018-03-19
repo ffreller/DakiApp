@@ -26,6 +26,10 @@ namespace DakiApp.domain.Entities
         public string Data { get; set; }
 
         [Required]
+        [StringLength(1000)]
+        public string UrlImagem { get; set; }
+
+        [Required]
         [StringLength(100)]
         public string Contato { get; set; }
 

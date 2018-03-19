@@ -9,13 +9,10 @@ namespace DakiApp.domain.Entities
     public class RespostasDomain : BaseDomain
     {
         public string Texto { get; set; }
-              
-        [ForeignKey("AlternativaId")]
-        public AlternativasDomain Alternativa { get; set; }
-        public int? AlternativaId { get; set; }
 
         [ForeignKey("PerguntaId")]
         public PerguntasDomain Pergunta { get; set; }
+        [Required]
         public int PerguntaId { get; set; }
 
         [ForeignKey("UsuarioId")]

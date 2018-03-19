@@ -11,8 +11,8 @@ using System;
 namespace DakiApp.repository.Migrations
 {
     [DbContext(typeof(DakiAppContext))]
-    [Migration("20180316003117_Permissoes")]
-    partial class Permissoes
+    [Migration("20180319224212_Respostas")]
+    partial class Respostas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -160,8 +160,6 @@ namespace DakiApp.repository.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AlternativaId");
-
                     b.Property<DateTime>("DataCriacao");
 
                     b.Property<int>("PerguntaId");
@@ -171,8 +169,6 @@ namespace DakiApp.repository.Migrations
                     b.Property<int>("UsuarioId");
 
                     b.HasKey("id");
-
-                    b.HasIndex("AlternativaId");
 
                     b.HasIndex("PerguntaId");
 
@@ -253,11 +249,6 @@ namespace DakiApp.repository.Migrations
 
             modelBuilder.Entity("DakiApp.domain.Entities.RespostasDomain", b =>
                 {
-                    b.HasOne("DakiApp.domain.Entities.AlternativasDomain", "Alternativa")
-                        .WithMany()
-                        .HasForeignKey("AlternativaId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
                         .WithMany()
                         .HasForeignKey("PerguntaId")

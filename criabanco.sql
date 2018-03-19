@@ -89,5 +89,8 @@
 --  select * from questionarios
 --  select * from QuestionarioPerguntas
 
+--dotnet ef migrations add RespostasOK --startup-project ../DakiApp.webapi/DakiApp.webapi.csproj
+--dotnet ef database update --startup-project ../DakiApp.webapi/DakiApp.webapi.csproj
+
 
 
