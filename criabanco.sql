@@ -55,10 +55,10 @@
 
 --  insert into Perguntas values 
 --  (getdate(),'Faz parte de alguma associação, entidade ou movimento na comunidade PS?','1','2')
---  ,(getdate(),'Se sim, dê mais informações','0','2')
---  ,(getdate(),'O que MAIS gosta na comunidade/bairro?','1','2')
---  ,(getdate(),'O que MENOS gosta na comunidade/bairro?e','1','2')
---  ,(getdate(),'Quais são as melhorias que gostaria de ver na comunidade?','1','2')
+--  ,(getdate(),'Se sim, dê mais informações','0','4')
+--  ,(getdate(),'O que MAIS gosta na comunidade/bairro?','1','4')
+--  ,(getdate(),'O que MENOS gosta na comunidade/bairro?e','1','4')
+--  ,(getdate(),'Quais são as melhorias que gostaria de ver na comunidade?','1','4')
 
 --  insert into QuestionarioPerguntas values 
 --   (getdate(),'9', '2')
@@ -72,24 +72,11 @@
 --  ('Sim', getdate(), '9')
 --  ,('Não', getdate(), '9')
 
-
--- -- /*
--- -- ----------------------------------
-
---  insert into perguntas values 
-
---  select * from Perguntas 
---  update perguntas set TipoResposta = '2' where id = '7'
-
---  sp_help alternativas
-
---  insert into Alternativas
-
---  select * from Perguntas
---  select * from questionarios
---  select * from QuestionarioPerguntas
-
+--insert into Permissoes values (getdate(), 'Admin'), (getdate(), 'Cliente')
 --insert into Usuarios values (getdate(), 'f.freller@gmail.com', 'Fabio','senha')
+-- insert into UsuarioPermissoes values (getdate(), '1', '1')
+
+
 
 --dotnet ef migrations add RespostasOK --startup-project ../DakiApp.webapi/DakiApp.webapi.csproj
 --dotnet ef database update --startup-project ../DakiApp.webapi/DakiApp.webapi.csproj

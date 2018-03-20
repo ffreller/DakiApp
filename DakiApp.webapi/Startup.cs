@@ -59,7 +59,7 @@ namespace DakiApp.webapi {
                 });
             
             services.AddAuthorization(auth => {
-                auth.AddPolicy("Admin", new AuthorizationPolicyBuilder().AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder().AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
             });
 
 

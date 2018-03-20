@@ -20,5 +20,6 @@ namespace DakiApp.domain.Entities
         public ICollection<RespostasDomain> Respostas { get; set; }
 
         public ICollection<AnunciosDomain> Anuncios { get; set; }
+        public ICollection<UsuarioPermissoesDomain> UsuarioPermissoes { get; set; }
     }
 }

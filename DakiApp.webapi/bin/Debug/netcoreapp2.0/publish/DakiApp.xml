@@ -16,7 +16,7 @@
             <summary>
             Cadastra novo anúncio
             </summary>
-            <param name="AnuncioDomain">Questionário</param>
+            <param name="AnunciosDomain">Questionário</param>
             <returns> ok </returns>
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
