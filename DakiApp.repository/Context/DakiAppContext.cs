@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using DakiApp.domain.Entities;
 using System.Linq;
+using System;
 
 namespace DakiApp.repository.Context
 {
@@ -42,5 +43,6 @@ namespace DakiApp.repository.Context
             
             base.OnModelCreating(modelbuilder);
         }
+
     }   
 }

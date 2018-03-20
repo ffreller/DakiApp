@@ -28,7 +28,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de cursos</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="NOMEDAPERMISAAAOOOOOOOOOOOO")]
+        [Authorize("Admin",Roles="NOMEDAPERMISAAo")]
         [HttpGet]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -102,7 +102,7 @@ namespace DakiApp.webapi.Controllers
         /// <summary>
         /// Cadastra novo anúncio
         /// </summary>
-        /// <param name="AnuncioDomain">Questionário</param>
+        /// <param name="AnunciosDomain">Questionário</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>

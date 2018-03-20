@@ -54,11 +54,14 @@ namespace DakiApp.webapi {
 
                     // Verifica se um token recebido ainda é válido
                     parametrosValidacao.ValidateLifetime = true;
+
+                    parametrosValidacao.ClockSkew = TimeSpan.Zero;
                 });
             
             services.AddAuthorization(auth => {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder().AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
+                auth.AddPolicy("Admin", new AuthorizationPolicyBuilder().AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme).RequireAuthenticatedUser().Build());
             });
+
 
             services.AddMvc ().AddJsonOptions (option => {
                 option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

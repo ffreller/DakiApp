@@ -89,6 +89,8 @@
 --  select * from questionarios
 --  select * from QuestionarioPerguntas
 
+--insert into Usuarios values (getdate(), 'f.freller@gmail.com', 'Fabio','senha')
+
 --dotnet ef migrations add RespostasOK --startup-project ../DakiApp.webapi/DakiApp.webapi.csproj
 --dotnet ef database update --startup-project ../DakiApp.webapi/DakiApp.webapi.csproj
 

@@ -4,6 +4,8 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DakiApp.domain.Contracts;
 using DakiApp.repository.Context;
+using DakiApp.domain.Entities;
+using Microsoft.Extensions.Configuration;
 
 namespace DakiApp.repository.Repositories
 {
@@ -94,6 +96,11 @@ namespace DakiApp.repository.Repositories
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public IEnumerable<UsuariosDomain> Find(int ID)
+        {
+           return _dbContext.Usuarios.Where(c => c.id == ID);      
         }
     }
 }
