@@ -28,7 +28,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de cursos</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Admin")]
+        [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -45,67 +45,40 @@ namespace DakiApp.webapi.Controllers
             
         }
 
-        // /// <summary>
-        // /// Lista dados do anúncio requisitado
-        // /// </summary>
-        // /// <param name="id">Id do anúncio</param>
-        // /// <returns> Questionário de id indicado, com todas suas perguntas e todas as alternativas destas</returns>
-        // /// <response code="200"> Retorna uma anúncio, com seus detalhes</response>
-        // /// <response code="400"> Ocorreu um erro</response>
-        // /// <response code="404">Id não encontrado</response>
-        // [HttpGet ("{id}")]
-        // [ProducesResponseType(typeof(JsonResult), 200)]
-        // [ProducesResponseType(typeof(string), 404)]
-        // [ProducesResponseType(typeof(string), 400)]
-        // public IActionResult BuscarPorId(int id)
-        // {
-        //     try
-        //     { 
-        //         var anuncio =  _context
-        //         .Anuncios
-        //         .Include(d => d.AnuncioPerguntas)
-        //         .ThenInclude(d => d.Pergunta.Alternativas)
-        //         .FirstOrDefault(d => d.id == id);
-        //         if (anuncio == null)
-        //         {
-        //             return NotFound("Id não encontrado");
-        //         }
+        /// <summary>
+        /// Lista dados do anúncio requisitado
+        /// </summary>
+        /// <param name="id">Id do anúncio</param>
+        /// <returns> Anúncio de id indicado, com todas suas perguntas e todas as alternativas destas</returns>
+        /// <response code="200"> Retorna uma anúncio, com seus detalhes</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404">Id não encontrado</response>
+        [Authorize("Bearer",Roles="Cliente,Admin")]
+        [HttpGet ("{id}")]
+        [ProducesResponseType(typeof(JsonResult), 200)]
+        [ProducesResponseType(typeof(string), 404)]
+        [ProducesResponseType(typeof(string), 400)]
+        public IActionResult BuscarPorId(int id)
+        {
+            try
+            {
+                return Ok(_repo.BuscarPorId(id));
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
             
-        //         var respostaJson = new {
-        //             anuncio.id,
-        //             anuncio.Nome,
-        //             perguntas = anuncio.AnuncioPerguntas.Select(d => new {
-        //                 d.Pergunta.id,
-        //                 d.Pergunta.TipoResposta,
-        //                 d.Pergunta.Enunciado,
-        //                 d.Pergunta.Obrigatoria,
-        //                 Alternativas = d.Pergunta.Alternativas.Select(g => new {
-        //                     g.id,
-        //                     g.Conteudo,
-        //                     g.DataCriacao,
-        //                 }).ToArray(),
-        //             }).ToArray()
-        //         };
-        //         return Ok(respostaJson);
-        //     }
-        //     catch(System.Exception ex)
-        //     {
-        //         return BadRequest(ex.Message);
-        //     }
-
-            // var includes = new string[]{ "AnuncioPerguntas", "AnuncioPerguntas.Pergunta.Alternativas"};
-            // return Ok(_repo.BuscarPorId(id,includes));
-        // }
-
-        
+        }
 
         /// <summary>
         /// Cadastra novo anúncio
         /// </summary>
-        /// <param name="AnunciosDomain">Questionário</param>
+        /// <param name="AnunciosDomain">Anúncio</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
+        [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -129,6 +102,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
+        [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpPut ("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -158,6 +132,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna Ok</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
+        [Authorize("Bearer",Roles="Cliente,Admin")]        
         [HttpDelete ("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]

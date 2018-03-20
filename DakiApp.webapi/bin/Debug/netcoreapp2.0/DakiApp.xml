@@ -12,11 +12,21 @@
             <response code="200"> Retorna uma lista de cursos</response>
             <response code="400"> Ocorreu um erro</response>
         </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.BuscarPorId(System.Int32)">
+            <summary>
+            Lista dados do anúncio requisitado
+            </summary>
+            <param name="id">Id do anúncio</param>
+            <returns> Anúncio de id indicado, com todas suas perguntas e todas as alternativas destas</returns>
+            <response code="200"> Retorna uma anúncio, com seus detalhes</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404">Id não encontrado</response>
+        </member>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.Inserir(DakiApp.domain.Entities.AnunciosDomain)">
             <summary>
             Cadastra novo anúncio
             </summary>
-            <param name="AnunciosDomain">Questionário</param>
+            <param name="AnunciosDomain">Anúncio</param>
             <returns> ok </returns>
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
