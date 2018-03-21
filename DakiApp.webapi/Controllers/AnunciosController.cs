@@ -23,10 +23,10 @@ namespace DakiApp.webapi.Controllers
         }
         
         /// <summary>
-        /// Lista todas os anúncios cadastrados cadastrados
+        /// Lista todas os anúncios cadastrados
         /// </summary>
         /// <returns> Lista de anúncios</returns>
-        /// <response code="200"> Retorna uma lista de cursos</response>
+        /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
         [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpGet]
@@ -41,8 +41,7 @@ namespace DakiApp.webapi.Controllers
             catch(System.Exception ex)
             {
                 return BadRequest(ex.Message);
-            }
-            
+            }     
         }
 
         /// <summary>
@@ -68,7 +67,6 @@ namespace DakiApp.webapi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            
         }
 
         /// <summary>

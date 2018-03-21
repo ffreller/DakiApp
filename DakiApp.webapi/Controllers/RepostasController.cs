@@ -23,7 +23,30 @@ namespace DakiApp.webapi.Controllers
             _context = context;
         }
 
-         /// <summary>
+        /// <summary>
+        /// Lista todas as respostas cadastradas
+        /// </summary>
+        /// <returns> Lista de respotass</returns>
+        /// <response code="200"> Retorna uma lista de Respostas</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        [Authorize("Bearer",Roles="Admin")]
+        [HttpGet]
+        [ProducesResponseType(typeof(List<RespostasDomain>), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        public IActionResult Listar()
+        {
+            try
+            {
+                return Ok(_repo.Listar());
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
+        }
+
+        /// <summary>
         /// Cadastra nova resposta
         /// </summary>
         /// <param name="RespostasDomain">Resposta</param>
