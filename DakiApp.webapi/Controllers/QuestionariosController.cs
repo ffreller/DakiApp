@@ -102,7 +102,7 @@ namespace DakiApp.webapi.Controllers
         /// <summary>
         /// Cadastra novo questionário
         /// </summary>
-        /// <param name="QuestionarioDomain">Questionário</param>
+        /// <param name="QuestionariosDomain">Questionário</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>

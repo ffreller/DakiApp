@@ -15,11 +15,12 @@ namespace DakiApp.webapi.Controllers
         {
             _repo = repo;
         }
-        [HttpGet]
-        public IActionResult Listar()
-        {
-            return Ok(_repo.Listar());
-        }
+
+        // [HttpGet]
+        // public IActionResult Listar()
+        // {
+        //     return Ok(_repo.Listar());
+        // }
 
         [HttpGet ("{id}")]
         public IActionResult BuscarPorId(int id)
@@ -27,25 +28,25 @@ namespace DakiApp.webapi.Controllers
             return Ok(_repo.BuscarPorId(id, new string[] {"QuestionarioPerguntas.Questionario"}));
         }
 
-        [HttpDelete ("{id}")]
-        public IActionResult Deletar(int id)
-        {
-            var perguntas = _repo.BuscarPorId(id);
-            return Ok(_repo.Deletar(perguntas));
-        }
+        // [HttpDelete ("{id}")]
+        // public IActionResult Deletar(int id)
+        // {
+        //     var perguntas = _repo.BuscarPorId(id);
+        //     return Ok(_repo.Deletar(perguntas));
+        // }
 
-        [HttpPost]
-        public IActionResult Inserir([FromBody]PerguntasDomain Perguntas)
-        {
-            return Ok(_repo.Inserir(Perguntas));
-        }
+        // [HttpPost]
+        // public IActionResult Inserir([FromBody]PerguntasDomain Perguntas)
+        // {
+        //     return Ok(_repo.Inserir(Perguntas));
+        // }
 
-        [HttpPut ("{id}")]
-        public IActionResult Autalizar(int id)
-        {
-            var perguntas = _repo.BuscarPorId(id);
-            return Ok(_repo.Atualizar(perguntas));
-        }
+        // [HttpPut ("{id}")]
+        // public IActionResult Autalizar(int id)
+        // {
+        //     var perguntas = _repo.BuscarPorId(id);
+        //     return Ok(_repo.Atualizar(perguntas));
+        // }
         
     }
 }

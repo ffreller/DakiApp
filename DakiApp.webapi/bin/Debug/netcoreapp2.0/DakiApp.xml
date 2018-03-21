@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>DakiApp.webapi</name>
+        <name>DakiApp.WebApi</name>
     </assembly>
     <members>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.Listar">
@@ -51,6 +51,15 @@
             <response code="400"> Ocorreu um erro</response>
             <response code="404"> Id não encontrado</response>
         </member>
+        <member name="M:DakiApp.webapi.Controllers.CadastroController.Inserir(DakiApp.domain.Entities.UsuariosDomain,DakiApp.domain.Entities.UsuarioPermissoesDomain)">
+            <summary>
+            Cadastra novo usuário
+            </summary>
+            <param name="UsuariosDomain">Usuário</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+             <response code="400"> Ocorreu um erro</response>
+        </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Listar">
             <summary>
             Lista todas os questionários cadastrados cadastrados
@@ -73,7 +82,7 @@
             <summary>
             Cadastra novo questionário
             </summary>
-            <param name="QuestionarioDomain">Questionário</param>
+            <param name="QuestionariosDomain">Questionário</param>
             <returns> ok </returns>
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
