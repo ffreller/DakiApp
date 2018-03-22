@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>DakiApp.WebApi</name>
+        <name>DakiApp.webapi</name>
     </assembly>
     <members>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.Listar">
             <summary>
-            Lista todas os anúncios cadastrados cadastrados
+            Lista todas os anúncios cadastrados
             </summary>
             <returns> Lista de anúncios</returns>
-            <response code="200"> Retorna uma lista de cursos</response>
+            <response code="200"> Retorna uma lista de anúncios</response>
             <response code="400"> Ocorreu um erro</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.BuscarPorId(System.Int32)">
@@ -62,10 +62,10 @@
         </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Listar">
             <summary>
-            Lista todas os questionários cadastrados cadastrados
+            Lista todas os questionários cadastrados
             </summary>
             <returns> Lista de questionários</returns>
-            <response code="200"> Retorna uma lista de cursos</response>
+            <response code="200"> Retorna uma lista de anúncios</response>
             <response code="400"> Ocorreu um erro</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.BuscarPorId(System.Int32)">
@@ -106,6 +106,23 @@
             <response code="200"> Retorna Ok</response>
             <response code="400"> Ocorreu um erro</response>
             <response code="404"> Id não encontrado</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.RespostasController.Listar">
+            <summary>
+            Lista todas as respostas cadastradas
+            </summary>
+            <returns> Lista de respotass</returns>
+            <response code="200"> Retorna uma lista de Respostas</response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.RespostasController.Inserir(DakiApp.domain.Entities.RespostasDomain)">
+            <summary>
+            Cadastra nova resposta
+            </summary>
+            <param name="RespostasDomain">Resposta</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+             <response code="400"> Ocorreu um erro</response>
         </member>
     </members>
 </doc>

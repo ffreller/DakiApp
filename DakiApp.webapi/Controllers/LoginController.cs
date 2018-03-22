@@ -57,13 +57,21 @@ namespace DakiApp.webapi.Controllers
                 });
 
                 var token = handler.WriteToken(securityToken);
+
+                  var respostaJson = new {
+                    user.id,
+                    user.Nome,
+                    permissoes = user.UsuarioPermissoes.Select(d => new {
+                        d.Permissao.Nome
+                        }).ToArray()                  
+                };
                 
-                var retorno = new{atutenticacao = true,  acessToken = token, message = "OK"};
+                var retorno = new{atutenticacao = true,  acessToken = token, message = "OK", usuario = respostaJson};
 
                 return Ok(retorno);
             }
 
-            var retornoerro = new {autenticacao = false, message = "Falha na Autentição"};
+            var retornoerro = new {autenticacao = false, message = "Falha na Autenticação"};
             return BadRequest(retornoerro);
         }
     }
