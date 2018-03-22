@@ -22,7 +22,7 @@ namespace DakiApp.webapi.Controllers
             _context = context;
         }
         
-        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS APROVADOS
+        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS APROVADOS-----Autorizacao=true
         /// <summary>
         /// Lista todas os anúncios cadastrados e aprovados
         /// </summary>
@@ -37,7 +37,9 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                return Ok(_repo.Listar());
+                //checar
+                var anuncios =  _context.Anuncios.Include(d => d.Autorizacao).Where(d => d.Autorizacao == true);
+                return Ok(anuncios);
             }
             catch(System.Exception ex)
             {
@@ -45,14 +47,14 @@ namespace DakiApp.webapi.Controllers
             }     
         }
 
-        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS PENDENTES DE APROVAÇÃO    
+        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS PENDENTES DE APROVAÇÃO------Autorizacao = null
         /// <summary>
         /// Lista todas os anúncios cadastrados pendentes de aprovação
         /// </summary>
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Cliente")]
+        [Authorize("Bearer",Roles="Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -60,7 +62,9 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                return Ok(_repo.Listar());
+                // checar
+                var anuncios =  _context.Anuncios.Include(d => d.Autorizacao).Where(d => d.Autorizacao == null);
+                return Ok(anuncios);
             }
             catch(System.Exception ex)
             {
@@ -129,7 +133,7 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-        public IActionResult Atualizar(AnunciosDomain Anuncios)
+        public IActionResult Atualizar([FromBody]AnunciosDomain Anuncios)
         {
             try
             {
@@ -159,11 +163,12 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-        public IActionResult AtualizarAut(AnunciosDomain Anuncios)
+        public IActionResult AtualizarAut([FromBody] AnunciosDomain Anuncios)
         {
             try
             {
-                var anuncios = _repo.BuscarPorId(Anuncios.id);
+                // precisamos arranjar uma maneira de enviar apenas o campo autorização no body
+                var anuncios = _context.Anuncios.Include(d => d.Autorizacao).FirstOrDefault(d => d.id == Anuncios.id);
                 if (anuncios == null)
                 {
                     return NotFound("Id não encontrado");

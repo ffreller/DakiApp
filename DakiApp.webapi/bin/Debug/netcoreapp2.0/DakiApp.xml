@@ -4,9 +4,19 @@
         <name>DakiApp.webapi</name>
     </assembly>
     <members>
-        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Listar">
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.ListarAprovados">
+            NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS APROVADOS-----Autorizacao=true
             <summary>
-            Lista todas os anúncios cadastrados
+            Lista todas os anúncios cadastrados e aprovados
+            </summary>
+            <returns> Lista de anúncios</returns>
+            <response code="200"> Retorna uma lista de anúncios</response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.ListarPendentes">
+            NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS PENDENTES DE APROVAÇÃO------Autorizacao = null
+            <summary>
+            Lista todas os anúncios cadastrados pendentes de aprovação
             </summary>
             <returns> Lista de anúncios</returns>
             <response code="200"> Retorna uma lista de anúncios</response>
@@ -31,13 +41,23 @@
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
         </member>
-        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Atualizar(System.Int32)">
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.Atualizar(DakiApp.domain.Entities.AnunciosDomain)">
             <summary>
             Atualiza o anúncio indicado
             </summary>
             <param name="id">Id do anúncio</param>
             <returns> ok </returns>
             <response code="200"> Retorna uma lista de anúncios</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id não encontrado</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.AtualizarAut(DakiApp.domain.Entities.AnunciosDomain)">
+            <summary>
+            Atualiza a Autorização do anúncio
+            </summary>
+            <param name="id">Id do anúncio</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna número de linhas alteradas</response>
             <response code="400"> Ocorreu um erro</response>
             <response code="404"> Id não encontrado</response>
         </member>
@@ -77,35 +97,6 @@
             <response code="200"> Retorna uma questionário, com seus detalhes</response>
             <response code="400"> Ocorreu um erro</response>
             <response code="404">Id não encontrado</response>
-        </member>
-        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Inserir(DakiApp.domain.Entities.QuestionariosDomain)">
-            <summary>
-            Cadastra novo questionário
-            </summary>
-            <param name="QuestionariosDomain">Questionário</param>
-            <returns> ok </returns>
-            <response code="200"> Retorna ok </response>
-             <response code="400"> Ocorreu um erro</response>
-        </member>
-        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Atualizar(System.Int32)">
-            <summary>
-            Atualiza o questionário indicado
-            </summary>
-            <param name="id">Id do questionário</param>
-            <returns> ok </returns>
-            <response code="200"> Retorna uma lista de questionários</response>
-            <response code="400"> Ocorreu um erro</response>
-            <response code="404"> Id não encontrado</response>
-        </member>
-        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Deletar(System.Int32)">
-            <summary>
-            Deleta questionário indicado
-            </summary>
-            <param name="id">Id do questionário</param>
-            <returns> ok </returns>
-            <response code="200"> Retorna Ok</response>
-            <response code="400"> Ocorreu um erro</response>
-            <response code="404"> Id não encontrado</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.RespostasController.Listar">
             <summary>

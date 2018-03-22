@@ -12821,11 +12821,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
       "projectName": "DakiApp.webapi",
-      "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
+      "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
       "packagesPath": "C:\\Users\\Fabio Freller\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\obj\\",
+      "outputPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12842,11 +12842,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
-              "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
+            "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
+              "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
             },
-            "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj": {
-              "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj"
+            "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj": {
+              "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj"
             }
           }
         }
