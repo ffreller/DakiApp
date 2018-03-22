@@ -35,8 +35,11 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                _repo.Inserir(Usuarios);
-                _repo1.Inserir(UsuarioPermissoes);
+                int id;
+
+                _context.Usuarios.Add(Usuarios);
+                _context.SaveChanges();
+                id = Usuarios.id;
                 return Ok();
             }
             catch(System.Exception ex)
