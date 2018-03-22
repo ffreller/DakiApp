@@ -22,17 +22,41 @@ namespace DakiApp.webapi.Controllers
             _context = context;
         }
         
+        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS APROVADOS
         /// <summary>
-        /// Lista todas os anúncios cadastrados
+        /// Lista todas os anúncios cadastrados e aprovados
         /// </summary>
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
+        [Authorize("Bearer",Roles="Cliente")]
         [HttpGet]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
-        public IActionResult Listar()
+        public IActionResult ListarAprovados()
+        {
+            try
+            {
+                return Ok(_repo.Listar());
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }     
+        }
+
+        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS PENDENTES DE APROVAÇÃO    
+        /// <summary>
+        /// Lista todas os anúncios cadastrados pendentes de aprovação
+        /// </summary>
+        /// <returns> Lista de anúncios</returns>
+        /// <response code="200"> Retorna uma lista de anúncios</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        [Authorize("Bearer",Roles="Cliente")]
+        [HttpGet]
+        [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        public IActionResult ListarPendentes()
         {
             try
             {
@@ -105,11 +129,41 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-        public IActionResult Atualizar(int id)
+        public IActionResult Atualizar(AnunciosDomain Anuncios)
         {
             try
             {
-                var anuncios = _repo.BuscarPorId(id);
+                var anuncios = _repo.BuscarPorId(Anuncios.id);
+                if (anuncios == null)
+                {
+                    return NotFound("Id não encontrado");
+                }
+                return Ok(_repo.Atualizar(anuncios));
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Atualiza a Autorização do anúncio
+        /// </summary>
+        /// <param name="id">Id do anúncio</param>
+        /// <returns> ok </returns>
+        /// <response code="200"> Retorna número de linhas alteradas</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404"> Id não encontrado</response>
+        [Authorize("Bearer",Roles="Admin")]
+        [HttpPut ("{id}")]
+        [ProducesResponseType(typeof(int), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        [ProducesResponseType(typeof(string), 404)]
+        public IActionResult AtualizarAut(AnunciosDomain Anuncios)
+        {
+            try
+            {
+                var anuncios = _repo.BuscarPorId(Anuncios.id);
                 if (anuncios == null)
                 {
                     return NotFound("Id não encontrado");

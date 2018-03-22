@@ -42,7 +42,6 @@ namespace DakiApp.webapi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            
         }
 
         /// <summary>
@@ -99,82 +98,82 @@ namespace DakiApp.webapi.Controllers
 
         
 
-        /// <summary>
-        /// Cadastra novo questionário
-        /// </summary>
-        /// <param name="QuestionariosDomain">Questionário</param>
-        /// <returns> ok </returns>
-        /// <response code="200"> Retorna ok </response>
-        ///  <response code="400"> Ocorreu um erro</response>
-        [HttpPost]
-        [ProducesResponseType(typeof(int), 200)]
-        [ProducesResponseType(typeof(string), 400)]
-        public IActionResult Inserir([FromBody]QuestionariosDomain Questionarios)
-        {
-            try
-            {
-                return Ok(_repo.Inserir(Questionarios));
-            }
-            catch(System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }               
-        }
+        // /// <summary>
+        // /// Cadastra novo questionário
+        // /// </summary>
+        // /// <param name="QuestionariosDomain">Questionário</param>
+        // /// <returns> ok </returns>
+        // /// <response code="200"> Retorna ok </response>
+        // ///  <response code="400"> Ocorreu um erro</response>
+        // [HttpPost]
+        // [ProducesResponseType(typeof(int), 200)]
+        // [ProducesResponseType(typeof(string), 400)]
+        // public IActionResult Inserir([FromBody]QuestionariosDomain Questionarios)
+        // {
+        //     try
+        //     {
+        //         return Ok(_repo.Inserir(Questionarios));
+        //     }
+        //     catch(System.Exception ex)
+        //     {
+        //         return BadRequest(ex.Message);
+        //     }               
+        // }
 
-        /// <summary>
-        /// Atualiza o questionário indicado
-        /// </summary>
-        /// <param name="id">Id do questionário</param>
-        /// <returns> ok </returns>
-        /// <response code="200"> Retorna uma lista de questionários</response>
-        /// <response code="400"> Ocorreu um erro</response>
-        /// <response code="404"> Id não encontrado</response>
-        [HttpPut ("{id}")]
-        [ProducesResponseType(typeof(int), 200)]
-        [ProducesResponseType(typeof(string), 400)]
-        [ProducesResponseType(typeof(string), 404)]
-        public IActionResult Atualizar(int id)
-        {
-            try
-            {
-                var questionarios = _repo.BuscarPorId(id);
-                if (questionarios == null)
-                {
-                    return NotFound("Id não encontrado");
-                }
-                return Ok(_repo.Atualizar(questionarios));
-            }
-            catch(System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        // /// <summary>
+        // /// Atualiza o questionário indicado
+        // /// </summary>
+        // /// <param name="id">Id do questionário</param>
+        // /// <returns> ok </returns>
+        // /// <response code="200"> Retorna uma lista de questionários</response>
+        // /// <response code="400"> Ocorreu um erro</response>
+        // /// <response code="404"> Id não encontrado</response>
+        // [HttpPut ("{id}")]
+        // [ProducesResponseType(typeof(int), 200)]
+        // [ProducesResponseType(typeof(string), 400)]
+        // [ProducesResponseType(typeof(string), 404)]
+        // public IActionResult Atualizar(int id)
+        // {
+        //     try
+        //     {
+        //         var questionarios = _repo.BuscarPorId(id);
+        //         if (questionarios == null)
+        //         {
+        //             return NotFound("Id não encontrado");
+        //         }
+        //         return Ok(_repo.Atualizar(questionarios));
+        //     }
+        //     catch(System.Exception ex)
+        //     {
+        //         return BadRequest(ex.Message);
+        //     }
+        // }
 
-        /// <summary>
-        /// Deleta questionário indicado
-        /// </summary>
-        /// <param name="id">Id do questionário</param>
-        /// <returns> ok </returns>
-        /// <response code="200"> Retorna Ok</response>
-        /// <response code="400"> Ocorreu um erro</response>
-        /// <response code="404"> Id não encontrado</response>
-        [HttpDelete ("{id}")]
-        [ProducesResponseType(typeof(int), 200)]
-        [ProducesResponseType(typeof(string), 400)]
-        [ProducesResponseType(typeof(string), 404)]
-        public IActionResult Deletar(int id)
-        {
-            try{
-                var questionarios = _repo.BuscarPorId(id);
-                if (questionarios == null){
-                    return NotFound("Id não encontrado");
-                }
-                return Ok(_repo.Deletar(questionarios));
-            }
-            catch(System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }   
-        }
+        // /// <summary>
+        // /// Deleta questionário indicado
+        // /// </summary>
+        // /// <param name="id">Id do questionário</param>
+        // /// <returns> ok </returns>
+        // /// <response code="200"> Retorna Ok</response>
+        // /// <response code="400"> Ocorreu um erro</response>
+        // /// <response code="404"> Id não encontrado</response>
+        // [HttpDelete ("{id}")]
+        // [ProducesResponseType(typeof(int), 200)]
+        // [ProducesResponseType(typeof(string), 400)]
+        // [ProducesResponseType(typeof(string), 404)]
+        // public IActionResult Deletar(int id)
+        // {
+        //     try{
+        //         var questionarios = _repo.BuscarPorId(id);
+        //         if (questionarios == null){
+        //             return NotFound("Id não encontrado");
+        //         }
+        //         return Ok(_repo.Deletar(questionarios));
+        //     }
+        //     catch(System.Exception ex)
+        //     {
+        //         return BadRequest(ex.Message);
+        //     }   
+        // }
     }
 }

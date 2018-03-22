@@ -42,8 +42,7 @@ namespace DakiApp.domain.Entities
         [Required]
         public int UsuarioId { get; set; }
 
-        [Required]
-        public bool Autorizacao { get; set; }
+        public bool? Autorizacao { get; set; }
 
     }
 }
