@@ -25,6 +25,13 @@ namespace DakiApp.webapi.Controllers
 
        }
 
+        [Route("api/teste")]
+        [HttpGet]
+        public object teste(){
+            return contexto.UsuarioPermissoes.ToList();
+        }
+
+
         [AllowAnonymous]
         [HttpPost]
         public object Login([FromBody]UsuariosDomain usuario, [FromServices]signingConfigurations signingConfigurations, [FromServices]TokenConfigurations tokenConfigurations)
@@ -58,7 +65,7 @@ namespace DakiApp.webapi.Controllers
 
                 var token = handler.WriteToken(securityToken);
 
-                  var respostaJson = new {
+                var respostaJson = new {
                     user.id,
                     user.Nome,
                     permissoes = user.UsuarioPermissoes.Select(d => new {
