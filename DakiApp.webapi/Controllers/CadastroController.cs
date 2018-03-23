@@ -11,12 +11,10 @@ namespace DakiApp.webapi.Controllers
     public class CadastroController:Controller
     {
         private readonly IBaseRepository<UsuariosDomain> _repo;
-        private readonly IBaseRepository<UsuarioPermissoesDomain> _repo1;
         private readonly DakiAppContext _context;
 
-        public CadastroController(IBaseRepository<UsuariosDomain> repo, IBaseRepository<UsuarioPermissoesDomain> repo1, DakiAppContext context)
+        public CadastroController(IBaseRepository<UsuariosDomain> repo, DakiAppContext context)
         {
-            _repo1=repo1;
             _repo = repo;
             _context = context;
         }
@@ -31,16 +29,19 @@ namespace DakiApp.webapi.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
-        public IActionResult Inserir([FromBody]UsuariosDomain Usuarios, [FromBody]UsuarioPermissoesDomain UsuarioPermissoes)
+        public IActionResult Inserir([FromBody]UsuariosDomain Usuarios)
         {
             try
             {
-                int id;
-
                 _context.Usuarios.Add(Usuarios);
                 _context.SaveChanges();
-                id = Usuarios.id;
-                return Ok();
+
+                UsuarioPermissoesDomain permissoes = new UsuarioPermissoesDomain();
+                permissoes.UsuarioId = Usuarios.id;
+                permissoes.PermissaoId = 2;
+                _context.UsuarioPermissoes.Add(permissoes);
+                _context.SaveChanges();
+                return Ok("Cadastrado com sucesso");
             }
             catch(System.Exception ex)
             {

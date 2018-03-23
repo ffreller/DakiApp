@@ -71,7 +71,7 @@
             <response code="400"> Ocorreu um erro</response>
             <response code="404"> Id não encontrado</response>
         </member>
-        <member name="M:DakiApp.webapi.Controllers.CadastroController.Inserir(DakiApp.domain.Entities.UsuariosDomain,DakiApp.domain.Entities.UsuarioPermissoesDomain)">
+        <member name="M:DakiApp.webapi.Controllers.CadastroController.Inserir(DakiApp.domain.Entities.UsuariosDomain)">
             <summary>
             Cadastra novo usuário
             </summary>
