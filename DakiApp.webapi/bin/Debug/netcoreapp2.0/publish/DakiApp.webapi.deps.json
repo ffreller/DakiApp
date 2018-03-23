@@ -36,19 +36,6 @@
           "DakiApp.webapi.dll": {}
         }
       },
-      "Dapper/1.50.4": {
-        "dependencies": {
-          "System.Data.SqlClient": "4.4.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.4.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Dapper.dll": {}
-        },
-        "compile": {
-          "lib/netstandard2.0/Dapper.dll": {}
-        }
-      },
       "Libuv/1.10.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0"
@@ -3891,7 +3878,6 @@
       "DakiApp.repository/1.0.0": {
         "dependencies": {
           "DakiApp.domain": "1.0.0",
-          "Dapper": "1.50.4",
           "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore.Relational": "2.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
@@ -4087,13 +4073,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Dapper/1.50.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-t5DMz+1aEkBcyCgkj+6hJHNsUq3k/d67lVMTNzICEhVjPUI3Gt2kgotSK8S4SpziIbFPphnOEn8M6Q75ED5hRQ==",
-      "path": "dapper/1.50.4",
-      "hashPath": "dapper.1.50.4.nupkg.sha512"
     },
     "Libuv/1.10.0": {
       "type": "package",
