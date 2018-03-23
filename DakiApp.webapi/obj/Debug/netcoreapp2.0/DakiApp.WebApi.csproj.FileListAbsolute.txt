@@ -43,3 +43,18 @@ C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.webapi\obj\Debug\netcoreapp
 C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.dll
 C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.pdb
 C:\Users\Fabio Freller\Documents\Programar\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.xml
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.xml
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.deps.json
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.runtimeconfig.json
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.runtimeconfig.dev.json
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.dll
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.webapi.pdb
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.domain.dll
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.repository.dll
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.domain.pdb
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\bin\Debug\netcoreapp2.0\DakiApp.repository.pdb
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.csproj.CoreCompileInputs.cache
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.AssemblyInfoInputs.cache
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.AssemblyInfo.cs
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.dll
+C:\Users\33359624866\Desktop\projeto\DakiApp.solution\DakiApp.webapi\obj\Debug\netcoreapp2.0\DakiApp.webapi.pdb

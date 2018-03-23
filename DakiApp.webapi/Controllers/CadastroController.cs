@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DakiApp.domain.Contracts;
 using DakiApp.domain.Entities;
@@ -39,6 +40,7 @@ namespace DakiApp.webapi.Controllers
                 UsuarioPermissoesDomain permissoes = new UsuarioPermissoesDomain();
                 permissoes.UsuarioId = Usuarios.id;
                 permissoes.PermissaoId = 2;
+                permissoes.DataCriacao = DateTime.Now;
                 _context.UsuarioPermissoes.Add(permissoes);
                 _context.SaveChanges();
                 return Ok("Cadastrado com sucesso");

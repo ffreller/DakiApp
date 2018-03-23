@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>DakiApp.webapi</name>
+        <name>DakiApp.WebApi</name>
     </assembly>
     <members>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.ListarAprovados">
@@ -41,6 +41,16 @@
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
         </member>
+        <member name="M:DakiApp.webapi.Controllers.AnunciosController.AtualizarAut(System.Boolean,System.Int32)">
+            <summary>
+            Atualiza a Autorização do anúncio
+            </summary>
+            <param name="id">Id do anúncio</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna número de linhas alteradas</response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id não encontrado</response>
+        </member>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.Atualizar(DakiApp.domain.Entities.AnunciosDomain)">
             <summary>
             Atualiza o anúncio indicado
@@ -48,16 +58,6 @@
             <param name="id">Id do anúncio</param>
             <returns> ok </returns>
             <response code="200"> Retorna uma lista de anúncios</response>
-            <response code="400"> Ocorreu um erro</response>
-            <response code="404"> Id não encontrado</response>
-        </member>
-        <member name="M:DakiApp.webapi.Controllers.AnunciosController.AtualizarAut(DakiApp.domain.Entities.AnunciosDomain)">
-            <summary>
-            Atualiza a Autorização do anúncio
-            </summary>
-            <param name="id">Id do anúncio</param>
-            <returns> ok </returns>
-            <response code="200"> Retorna número de linhas alteradas</response>
             <response code="400"> Ocorreu um erro</response>
             <response code="404"> Id não encontrado</response>
         </member>

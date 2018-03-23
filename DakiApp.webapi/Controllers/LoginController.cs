@@ -44,6 +44,7 @@ namespace DakiApp.webapi.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
                     new Claim(JwtRegisteredClaimNames.UniqueName, user.id.ToString()),
                     new Claim("Nome", user.Nome),
+                    new Claim("Id", user.id.ToString()),
                     new Claim(ClaimTypes.Email, user.Email)
                 });
 

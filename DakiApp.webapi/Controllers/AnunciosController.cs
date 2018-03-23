@@ -6,6 +6,7 @@ using DakiApp.repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace DakiApp.webapi.Controllers
 {
@@ -121,6 +122,39 @@ namespace DakiApp.webapi.Controllers
         }
 
         /// <summary>
+        /// Atualiza a Autorização do anúncio
+        /// </summary>
+        /// <param name="id">Id do anúncio</param>
+        /// <returns> ok </returns>
+        /// <response code="200"> Retorna número de linhas alteradas</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404"> Id não encontrado</response>
+        [Authorize("Bearer",Roles="Admin")]
+        [HttpPut ("{id}/{autorizacao}")]
+        [ProducesResponseType(typeof(int), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        [ProducesResponseType(typeof(string), 404)]
+   
+
+        public IActionResult AtualizarAut(bool autorizacao, int id)
+        {
+            try
+            {
+                var anuncios = _repo.BuscarPorId(id);
+                if (anuncios == null)
+                {
+                    return NotFound("Id não encontrado");
+                }
+                anuncios.Autorizacao = autorizacao;
+                return Ok(_repo.Atualizar(anuncios));
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Atualiza o anúncio indicado
         /// </summary>
         /// <param name="id">Id do anúncio</param>
@@ -133,47 +167,36 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-        public IActionResult Atualizar([FromBody]AnunciosDomain Anuncios)
+   
+        public IActionResult Atualizar([FromBody] AnunciosDomain Anuncios)
         {
             try
             {
+                List<Claim> claims = HttpContext.User.Claims.ToList();
+                var userid = claims.FirstOrDefault(c => c.Type == "Id").Value.ToString();
+            
                 var anuncios = _repo.BuscarPorId(Anuncios.id);
                 if (anuncios == null)
                 {
                     return NotFound("Id não encontrado");
                 }
-                return Ok(_repo.Atualizar(anuncios));
-            }
-            catch(System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
 
-        /// <summary>
-        /// Atualiza a Autorização do anúncio
-        /// </summary>
-        /// <param name="id">Id do anúncio</param>
-        /// <returns> ok </returns>
-        /// <response code="200"> Retorna número de linhas alteradas</response>
-        /// <response code="400"> Ocorreu um erro</response>
-        /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer",Roles="Admin")]
-        [HttpPut ("{id}")]
-        [ProducesResponseType(typeof(int), 200)]
-        [ProducesResponseType(typeof(string), 400)]
-        [ProducesResponseType(typeof(string), 404)]
-        public IActionResult AtualizarAut([FromBody] AnunciosDomain Anuncios)
-        {
-            try
-            {
-                // precisamos arranjar uma maneira de enviar apenas o campo autorização no body
-                var anuncios = _context.Anuncios.Include(d => d.Autorizacao).FirstOrDefault(d => d.id == Anuncios.id);
-                if (anuncios == null)
+                if(userid == anuncios.UsuarioId.ToString())
                 {
-                    return NotFound("Id não encontrado");
+                    anuncios.Descricao = Anuncios.Descricao;
+                    anuncios.Autorizacao = Anuncios.Autorizacao;
+                    anuncios.Data = Anuncios.Data;
+                    anuncios.DataCriacao = Anuncios.DataCriacao;
+                    anuncios.Contato = Anuncios.Contato;
+                    anuncios.Descricao = Anuncios.Descricao;
+                    anuncios.Endereco = Anuncios.Endereco;
+                    anuncios.Tipo = Anuncios.Tipo;
+                    anuncios.Titulo = Anuncios.Titulo;
+                    anuncios.id = Anuncios.id;
+                    return Ok(_repo.Atualizar(anuncios));
                 }
-                return Ok(_repo.Atualizar(anuncios));
+                else
+                    return BadRequest("Usuário não autorizado");
             }
             catch(System.Exception ex)
             {
@@ -197,11 +220,16 @@ namespace DakiApp.webapi.Controllers
         public IActionResult Deletar(int id)
         {
             try{
+                List<Claim> claims = HttpContext.User.Claims.ToList();
+                var userid = claims.FirstOrDefault(c => c.Type == "Id").Value.ToString();
                 var anuncios = _repo.BuscarPorId(id);
                 if (anuncios == null){
                     return NotFound("Id não encontrado");
                 }
-                return Ok(_repo.Deletar(anuncios));
+                if(userid == anuncios.UsuarioId.ToString())
+                    return Ok(_repo.Deletar(anuncios));
+                else
+                    return BadRequest("Usuário não autorizado");
             }
             catch(System.Exception ex)
             {
