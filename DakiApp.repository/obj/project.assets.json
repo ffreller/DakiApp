@@ -5920,23 +5920,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fabio Freller\\.nuget\\packages\\": {},
+    "C:\\Users\\33359624866\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
+      "projectUniqueName": "C:\\Users\\33359624866\\Desktop\\projeto\\DakiApp\\DakiApp.repository\\DakiApp.repository.csproj",
       "projectName": "DakiApp.repository",
-      "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
-      "packagesPath": "C:\\Users\\Fabio Freller\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\obj\\",
+      "projectPath": "C:\\Users\\33359624866\\Desktop\\projeto\\DakiApp\\DakiApp.repository\\DakiApp.repository.csproj",
+      "packagesPath": "C:\\Users\\33359624866\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\33359624866\\Desktop\\projeto\\DakiApp\\DakiApp.repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Fabio Freller\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\33359624866\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -5947,8 +5947,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
-              "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
+            "C:\\Users\\33359624866\\Desktop\\projeto\\DakiApp\\DakiApp.domain\\DakiApp.domain.csproj": {
+              "projectPath": "C:\\Users\\33359624866\\Desktop\\projeto\\DakiApp\\DakiApp.domain\\DakiApp.domain.csproj"
             }
           }
         }

@@ -29,16 +29,16 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Cliente")]
+        [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpGet]
+        [Route("aprovados")]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult ListarAprovados()
         {
             try
             {
-                //checar
-                var anuncios =  _context.Anuncios.Include(d => d.Autorizacao).Where(d => d.Autorizacao == true);
+                var anuncios =  _context.Anuncios.Where(d => d.Autorizacao == true);
                 return Ok(anuncios);
             }
             catch(System.Exception ex)
@@ -56,14 +56,14 @@ namespace DakiApp.webapi.Controllers
         /// <response code="400"> Ocorreu um erro</response>
         [Authorize("Bearer",Roles="Admin")]
         [HttpGet]
+        [Route("pendentes")]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult ListarPendentes()
         {
             try
             {
-                // checar
-                var anuncios =  _context.Anuncios.Include(d => d.Autorizacao).Where(d => d.Autorizacao == null);
+                var anuncios =  _context.Anuncios.Where(d => d.Autorizacao == null);
                 return Ok(anuncios);
             }
             catch(System.Exception ex)

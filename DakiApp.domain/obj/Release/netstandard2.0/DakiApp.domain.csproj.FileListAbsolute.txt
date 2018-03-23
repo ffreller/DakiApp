@@ -1,0 +1,8 @@
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\bin\release\netstandard2.0\DakiApp.domain.deps.json
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\bin\release\netstandard2.0\DakiApp.domain.dll
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\bin\release\netstandard2.0\DakiApp.domain.pdb
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\obj\release\netstandard2.0\DakiApp.domain.csproj.CoreCompileInputs.cache
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\obj\release\netstandard2.0\DakiApp.domain.AssemblyInfoInputs.cache
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\obj\release\netstandard2.0\DakiApp.domain.AssemblyInfo.cs
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\obj\release\netstandard2.0\DakiApp.domain.dll
+C:\Users\33359624866\Desktop\projeto\DakiApp\DakiApp.domain\obj\release\netstandard2.0\DakiApp.domain.pdb
