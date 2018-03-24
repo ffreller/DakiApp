@@ -25,13 +25,6 @@ namespace DakiApp.webapi.Controllers
 
        }
 
-        [Route("api/teste")]
-        [HttpGet]
-        public object teste(){
-            return contexto.UsuarioPermissoes.ToList();
-        }
-
-
         [AllowAnonymous]
         [HttpPost]
         public object Login([FromBody]UsuariosDomain usuario, [FromServices]signingConfigurations signingConfigurations, [FromServices]TokenConfigurations tokenConfigurations)
@@ -82,5 +75,29 @@ namespace DakiApp.webapi.Controllers
             var retornoerro = new {autenticacao = false, message = "Falha na Autenticação"};
             return BadRequest(retornoerro);
         }
+
+        [Route("api/logout")]
+        [AllowAnonymous]
+        [HttpPost]
+        public object Logout()
+        {
+            try
+            {
+                var handler = new JwtSecurityTokenHandler();
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor{
+                Issuer = null,
+                Audience = null,
+                SigningCredentials = null,
+                Subject = null,
+                });
+
+                var token = handler.WriteToken(securityToken);
+                return Ok(token);
+            }
+            catch(SystemException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }  
     }
 }

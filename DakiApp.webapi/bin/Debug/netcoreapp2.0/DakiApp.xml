@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>DakiApp.WebApi</name>
+        <name>DakiApp.webapi</name>
     </assembly>
     <members>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.ListarAprovados">

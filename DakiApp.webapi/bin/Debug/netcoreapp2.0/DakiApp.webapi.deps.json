@@ -21,7 +21,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "DakiApp.WebApi/1.0.0": {
+      "DakiApp.webapi/1.0.0": {
         "dependencies": {
           "DakiApp.domain": "1.0.0",
           "DakiApp.repository": "1.0.0",
@@ -30,10 +30,10 @@
           "Swashbuckle.AspNetCore": "1.1.0"
         },
         "runtime": {
-          "DakiApp.WebApi.dll": {}
+          "DakiApp.webapi.dll": {}
         },
         "compile": {
-          "DakiApp.WebApi.dll": {}
+          "DakiApp.webapi.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -4074,7 +4074,7 @@
     }
   },
   "libraries": {
-    "DakiApp.WebApi/1.0.0": {
+    "DakiApp.webapi/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
