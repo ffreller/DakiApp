@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using System.Text;
 using DakiApp.domain.Contracts;
 using DakiApp.domain.Entities;
 using DakiApp.repository.Context;
+using DakiApp.repository.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +36,12 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
+                HashPassword geradorHash = new HashPassword();
+                var hash = geradorHash.GenerateHash(Usuarios, 10000, Usuarios.Senha.Length + Usuarios.DataCriacao.ToString().Length);
+                if(hash != null){
+                    Usuarios.Senha = Encoding.ASCII.GetString(hash).ToString();
+                }
+
                 _context.Usuarios.Add(Usuarios);
                 _context.SaveChanges();
 

@@ -5890,11 +5890,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
+      "projectUniqueName": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
       "projectName": "DakiApp.repository",
-      "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
+      "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj",
       "packagesPath": "C:\\Users\\Fabio Freller\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\obj\\",
+      "outputPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5911,8 +5911,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
-              "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
+            "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
+              "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
             }
           }
         }
