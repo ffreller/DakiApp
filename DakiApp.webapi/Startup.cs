@@ -68,6 +68,14 @@ namespace DakiApp.webapi {
             services.AddMvc ().AddJsonOptions (option => {
                 option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
+
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+        
             services.AddScoped (typeof (IBaseRepository<>), typeof (BaseRepository<>));
             services.AddSwaggerGen (c => {
                 c.SwaggerDoc ("v1", new Info {
@@ -83,13 +91,7 @@ namespace DakiApp.webapi {
                 });
                 var caminhoBase = AppContext.BaseDirectory;
                 var caminhoxml = Path.Combine (caminhoBase, "DakiApp.xml");
-            });
-            
-            services.Configure<MvcOptions>(options =>
-            {
-                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowSpecificOrigin"));
-            });
-
+            });     
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -101,6 +103,7 @@ namespace DakiApp.webapi {
             app.UseSwagger ();
             app.UseSwaggerUI (c => { c.SwaggerEndpoint ("/swagger/v1/swagger.json", "DakiApp"); });
             app.UseMvc ();
+            app.UseCors("MyPolicy");
         }
     }
 }
