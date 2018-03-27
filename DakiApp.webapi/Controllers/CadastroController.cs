@@ -5,11 +5,12 @@ using DakiApp.domain.Contracts;
 using DakiApp.domain.Entities;
 using DakiApp.repository.Context;
 using DakiApp.repository.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DakiApp.webapi.Controllers
-{
+{   
     [Route("api/[controller]")]
     public class CadastroController:Controller
     {

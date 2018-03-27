@@ -93,6 +93,53 @@
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
         }
       },
+      "Microsoft.AspNet.Cors/5.2.5-preview1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Web.Cors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Cors.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Client/5.2.5-preview1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json.Bson": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.5-preview1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.5-preview1"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Cors/5.2.5-preview1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Cors": "5.2.5-preview1",
+          "Microsoft.AspNet.WebApi.Core": "[5.2.5-preview1, 5.3.0)"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Cors.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Cors.dll": {}
+        }
+      },
       "Microsoft.AspNetCore/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -4930,6 +4977,54 @@
         "lib/netstandard1.6/Microsoft.AI.DependencyCollector.xml",
         "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512",
         "microsoft.applicationinsights.dependencycollector.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.Cors/5.2.5-preview1": {
+      "sha512": "cWRhQ4ufGOZtXNeq6b+NO1YjPToQtjqVuUoZBflw63lVvoF6WKAS5y/05gYMKZmYEekgmURWXQZS4yLtNYSJ+A==",
+      "type": "package",
+      "path": "microsoft.aspnet.cors/5.2.5-preview1",
+      "files": [
+        "lib/net45/System.Web.Cors.dll",
+        "microsoft.aspnet.cors.5.2.5-preview1.nupkg.sha512",
+        "microsoft.aspnet.cors.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Client/5.2.5-preview1": {
+      "sha512": "dOu7Xa+PN5YnAdewv4zROr3XwUjCnDRfu6tFgdAIdZOBF0pWy7wA9QJP2RIyUC3OEBRIiQvUsWfXBd0bJKT15g==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.client/5.2.5-preview1",
+      "files": [
+        "lib/net45/System.Net.Http.Formatting.dll",
+        "lib/net45/System.Net.Http.Formatting.xml",
+        "lib/netstandard2.0/System.Net.Http.Formatting.dll",
+        "lib/netstandard2.0/System.Net.Http.Formatting.xml",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
+        "microsoft.aspnet.webapi.client.5.2.5-preview1.nupkg.sha512",
+        "microsoft.aspnet.webapi.client.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.5-preview1": {
+      "sha512": "uRmaI4sn1O6Eoma7Ft9Urs1JzWj2vF1eSznrJZvnt/n31cmISJRmcrHyxlRZ8wK5Afaei+gwEwGiR+SVbM09nQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.core/5.2.5-preview1",
+      "files": [
+        "Content/web.config.transform",
+        "lib/net45/System.Web.Http.dll",
+        "lib/net45/System.Web.Http.xml",
+        "microsoft.aspnet.webapi.core.5.2.5-preview1.nupkg.sha512",
+        "microsoft.aspnet.webapi.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Cors/5.2.5-preview1": {
+      "sha512": "IvF2GaTWZCJK5IhojCpoYQn/IArU2hIjmwJiYP60OlRAQs7UJtrRFrTlc3NRwnRdILBzKhFgR+OwQo1d3XXB+w==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.cors/5.2.5-preview1",
+      "files": [
+        "lib/net45/System.Web.Http.Cors.dll",
+        "lib/net45/System.Web.Http.Cors.xml",
+        "microsoft.aspnet.webapi.cors.5.2.5-preview1.nupkg.sha512",
+        "microsoft.aspnet.webapi.cors.nuspec"
       ]
     },
     "Microsoft.AspNetCore/2.0.0": {
@@ -12773,6 +12868,7 @@
     ".NETCoreApp,Version=v2.0": [
       "DakiApp.domain >= 1.0.0",
       "DakiApp.repository >= 1.0.0",
+      "Microsoft.AspNet.WebApi.Cors >= 5.2.5-preview1",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Swashbuckle.AspNetCore >= 1.1.0"
@@ -12785,11 +12881,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
+      "projectUniqueName": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
       "projectName": "DakiApp.webapi",
-      "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
+      "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\DakiApp.webapi.csproj",
       "packagesPath": "C:\\Users\\Fabio Freller\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\obj\\",
+      "outputPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.webapi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12806,11 +12902,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
-              "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
+            "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj": {
+              "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.domain\\DakiApp.domain.csproj"
             },
-            "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj": {
-              "projectPath": "c:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj"
+            "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj": {
+              "projectPath": "C:\\Users\\Fabio Freller\\Documents\\Programar\\DakiApp.solution\\DakiApp.repository\\DakiApp.repository.csproj"
             }
           }
         }
@@ -12829,6 +12925,10 @@
             "version": "2.0.0",
             "autoReferenced": true
           },
+          "Microsoft.AspNet.WebApi.Cors": {
+            "target": "Package",
+            "version": "5.2.5-preview1"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
@@ -12845,5 +12945,37 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.2.5-preview1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.5-preview1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Cors 5.2.5-preview1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Cors",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }
