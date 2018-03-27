@@ -73,7 +73,8 @@ namespace DakiApp.webapi {
             {
                 builder.AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader();
+                    .AllowAnyHeader().
+                    AllowCredentials();
             }));
         
             services.AddScoped (typeof (IBaseRepository<>), typeof (BaseRepository<>));
@@ -102,8 +103,9 @@ namespace DakiApp.webapi {
 
             app.UseSwagger ();
             app.UseSwaggerUI (c => { c.SwaggerEndpoint ("/swagger/v1/swagger.json", "DakiApp"); });
+            app.UseCors ("MyPolicy");
             app.UseMvc ();
-            app.UseCors("MyPolicy");
+            
         }
     }
 }
