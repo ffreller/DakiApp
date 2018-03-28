@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using DakiApp.domain.Contracts;
 using DakiApp.domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DakiApp.webapi.Controllers
 {
@@ -23,6 +24,7 @@ namespace DakiApp.webapi.Controllers
         // }
 
         [HttpGet ("{id}")]
+        [Authorize("Bearer",Roles="Cliente,Admin")]
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_repo.BuscarPorId(id, new string[] {"QuestionarioPerguntas.Questionario"}));
