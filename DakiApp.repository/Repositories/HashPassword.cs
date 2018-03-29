@@ -8,40 +8,21 @@ namespace DakiApp.repository.Repositories
 {
     public class HashPassword
     {
-        // byte[] GenerateSalt(int length){
-        //     var bytes = new byte[length];
+        public string GenerateHash(string input)
+        {
+            using (SHA1Managed sha1 = new SHA1Managed())
+            {
+                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(input));
+                var sb = new StringBuilder(hash.Length * 2);
 
-        //     using (var rng = new RNGCryptoServiceProvider()){
-        //         rng.GetBytes(bytes);
-        //     }
+                foreach (byte b in hash)
+                {
+                    // can be "x2" if you want lowercase
+                    sb.Append(b.ToString("X2"));
+                }
 
-        //     return bytes;
-        // }
-
-        public byte[] GenerateHash(UsuariosDomain usuario, int iterations, int length){
-            var salt = Encoding.ASCII.GetBytes(usuario.DataCriacao.ToString());
-            using (var deriveBytes = new Rfc2898DeriveBytes(Encoding.ASCII.GetBytes(usuario.Senha), salt, iterations)){
-                return deriveBytes.GetBytes(length);
+                return sb.ToString();
             }
         }
-        // private static string CreateSalt(int size)
-        // {
-        //     //Generate a cryptographic random number.
-        //     RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-        //     byte[] buff = new byte[size];
-        //     rng.GetBytes(buff);
-
-        //     // Return a Base64 string representation of the random number.
-        //     return Convert.ToBase64String(buff);
-        // }
-
-        // private static string CreatePasswordHash(string pwd, string salt)
-        // {
-        //     string saltAndPwd = String.Concat(pwd, salt);
-        //     string hashedPwd =
-        //         FormsAuthentication.HashPasswordForStoringInConfigFile(
-        //         saltAndPwd, "sha1");
-        //     return hashedPwd;
-        // }
     }
 }
