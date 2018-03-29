@@ -15,7 +15,8 @@ namespace DakiApp.domain.Entities
 
         [Required]
         [DataType(DataType.DateTime)]
-        public DateTime DataCriacao { get; set; }
+
+        public DateTime DataCriacao { get; set; } = DateTime.Now;
         
     }
 }

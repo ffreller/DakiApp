@@ -6,6 +6,8 @@ using DakiApp.repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using DakiApp.webapi.ViewModels;
+using System;
 
 namespace DakiApp.webapi.Controllers
 {
@@ -57,16 +59,28 @@ namespace DakiApp.webapi.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
-        public IActionResult Inserir([FromBody]RespostasDomain Respostas)
+        public IActionResult Inserir([FromBody]List<RespostasDomain> Respostas)
         {
-            try
-            {
-                return Ok(_repo.Inserir(Respostas));
+            List<RespostasDomain> _respostas = new List<RespostasDomain>();
+            
+            try{
+                foreach (RespostasDomain resposta in Respostas){
+                    _respostas.Add(new RespostasDomain(){
+                        UsuarioId = resposta.UsuarioId,
+                        PerguntaId = resposta.PerguntaId,
+                        Texto = resposta.Texto
+                        
+                });}
+                foreach (RespostasDomain resposta in _respostas){
+                    _repo.Inserir(resposta);
+                };
+                
+                return Ok(Json("Realizado com sucesso"));
             }
-            catch(System.Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }               
+
+            catch (Exception ex){
+                throw new Exception(ex.Message);
+            }          
         }
     }
 }

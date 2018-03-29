@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DakiApp.domain.Contracts;
@@ -35,9 +36,23 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult Inserir([FromBody]UsuariosDomain Usuarios)
-        {
-            try
+        {   
+            var users = _context.Usuarios;
+            var lista = new List<string>();
+            foreach (var usua in users)
             {
+                lista.Add(usua.Email);
+            }
+            foreach (var email in lista)
+            {
+                if (Usuarios.Email == email )
+                    {
+                        return BadRequest("E-mail já cadastrado");
+                    }
+            }
+            
+            try
+            {   
                 HashPassword geradorHash = new HashPassword();
                 var hash = geradorHash.GenerateHash(Usuarios.Senha);
                 if(hash != null){

@@ -17,7 +17,6 @@ namespace DakiApp.repository.Repositories
 
                 foreach (byte b in hash)
                 {
-                    // can be "x2" if you want lowercase
                     sb.Append(b.ToString("X2"));
                 }
 

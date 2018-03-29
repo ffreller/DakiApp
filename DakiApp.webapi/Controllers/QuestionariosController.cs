@@ -21,6 +21,29 @@ namespace DakiApp.webapi.Controllers
             _repo = repo;
             _context = context;
         }
+
+        /// <summary>
+        /// Passa respostas do questionário para excel
+        /// </summary>
+        /// <returns> Lista de questionários</returns>
+        /// <response code="200"> Retorna uma lista de anúncios</response>
+        /// <response code="400"> Ocorreu um erro</response>
+        [Authorize("Bearer",Roles="Admin")]
+        [HttpGet]
+        [Route("api/[controller]")]
+        [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        public IActionResult GetExcel()
+        {
+            try
+            {
+                return Ok(_repo.Listar());
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         
         /// <summary>
         /// Lista todas os questionários cadastrados

@@ -80,6 +80,14 @@
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
         </member>
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.GetExcel">
+            <summary>
+            Passa respostas do questionário para excel
+            </summary>
+            <returns> Lista de questionários</returns>
+            <response code="200"> Retorna uma lista de anúncios</response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Listar">
             <summary>
             Lista todas os questionários cadastrados
@@ -106,7 +114,7 @@
             <response code="200"> Retorna uma lista de Respostas</response>
             <response code="400"> Ocorreu um erro</response>
         </member>
-        <member name="M:DakiApp.webapi.Controllers.RespostasController.Inserir(DakiApp.domain.Entities.RespostasDomain)">
+        <member name="M:DakiApp.webapi.Controllers.RespostasController.Inserir(System.Collections.Generic.List{DakiApp.domain.Entities.RespostasDomain})">
             <summary>
             Cadastra nova resposta
             </summary>
