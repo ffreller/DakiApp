@@ -31,12 +31,12 @@ namespace DakiApp.webapi.Controllers
         public object Login([FromBody]UsuariosDomain usuario, [FromServices]signingConfigurations signingConfigurations, [FromServices]TokenConfigurations tokenConfigurations)
         {
             try{
-                // HashPassword geradorHash = new HashPassword();
-                // var hash = geradorHash.GenerateHash(usuario, 10000, usuario.Senha.Length + usuario.DataCriacao.ToString().Length);
-                // if(hash != null){
-                //     usuario.Senha = Encoding.ASCII.GetString(hash).ToString();
-                // }
-                //não sei se o bloco acima é necessário
+                HashPassword geradorHash = new HashPassword();
+                var hash = geradorHash.GenerateHash(usuario.Senha);
+                if(hash != null){
+                    usuario.Senha = hash;
+                }
+                
                 UsuariosDomain user = contexto.Usuarios.Include("UsuarioPermissoes").Include("UsuarioPermissoes.Permissao").FirstOrDefault(c => c.Email == usuario.Email && c.Senha == usuario.Senha);
 
                 if(user != null)

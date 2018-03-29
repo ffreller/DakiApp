@@ -39,9 +39,9 @@ namespace DakiApp.webapi.Controllers
             try
             {
                 HashPassword geradorHash = new HashPassword();
-                var hash = geradorHash.GenerateHash(Usuarios, 10000, Usuarios.Senha.Length + Usuarios.DataCriacao.ToString().Length);
+                var hash = geradorHash.GenerateHash(Usuarios.Senha);
                 if(hash != null){
-                    Usuarios.Senha = Encoding.ASCII.GetString(hash).ToString();
+                    Usuarios.Senha = hash;
                 }
 
                 _context.Usuarios.Add(Usuarios);
