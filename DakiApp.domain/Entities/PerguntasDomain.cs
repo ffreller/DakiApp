@@ -20,7 +20,11 @@ namespace DakiApp.domain.Entities
         [Required]
         public bool Obrigatoria { get; set; }
 
+        public ICollection<RespostasDomain> Respostas { get; set; }
+
         public ICollection<AlternativasDomain> Alternativas { get; set; }
+
+        public ICollection<QuestionarioPerguntasDomain> QuestionarioPerguntas { get; set; }
        
     }
 }

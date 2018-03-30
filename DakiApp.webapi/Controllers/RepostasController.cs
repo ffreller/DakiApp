@@ -6,7 +6,6 @@ using DakiApp.repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
-using DakiApp.webapi.ViewModels;
 using System;
 
 namespace DakiApp.webapi.Controllers
@@ -82,5 +81,5 @@ namespace DakiApp.webapi.Controllers
                 throw new Exception(ex.Message);
             }          
         }
-    }
+   }
 }

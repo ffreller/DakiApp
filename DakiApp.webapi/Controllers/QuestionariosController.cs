@@ -6,6 +6,7 @@ using DakiApp.repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace DakiApp.webapi.Controllers
 {
@@ -28,16 +29,18 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de questionários</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Admin")]
-        [HttpGet]
-        [Route("api/[controller]")]
+        //[Authorize("Bearer",Roles="Admin")]
+        [HttpGet("{data}/{questionarioId}")]
+        [Route("excel/{data}/{questionarioId}")]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
-        public IActionResult GetExcel()
+        public IActionResult GetExcel(DateTime data, int questionarioId)
         {
             try
             {
-                return Ok(_repo.Listar());
+                var respostas = _context.Database.ExecuteSqlCommand($"exec RetornaRespostasPorDataeIdQuestionario { data }, {questionarioId}").ToList();
+
+                return Ok(respostas);
             }
             catch(System.Exception ex)
             {
