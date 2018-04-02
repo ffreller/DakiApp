@@ -19,5 +19,10 @@ namespace DakiApp.domain.Entities
         public UsuariosDomain Usuario { get; set; }
         [Required]
         public int UsuarioId { get; set; }
+
+        [ForeignKey("QuestionarioId")]
+        public QuestionariosDomain Questionario { get; set; }
+        [Required]
+        public int QuestionarioId { get; set; }
     }
 }
