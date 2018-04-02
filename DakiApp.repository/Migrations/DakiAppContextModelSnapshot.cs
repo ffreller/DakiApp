@@ -169,6 +169,8 @@ namespace DakiApp.repository.Migrations
 
                     b.Property<int>("PerguntaId");
 
+                    b.Property<int>("QuestionarioId");
+
                     b.Property<string>("Texto");
 
                     b.Property<int>("UsuarioId");
@@ -176,6 +178,8 @@ namespace DakiApp.repository.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("PerguntaId");
+
+                    b.HasIndex("QuestionarioId");
 
                     b.HasIndex("UsuarioId");
 
@@ -242,7 +246,7 @@ namespace DakiApp.repository.Migrations
             modelBuilder.Entity("DakiApp.domain.Entities.QuestionarioPerguntasDomain", b =>
                 {
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
-                        .WithMany()
+                        .WithMany("QuestionarioPerguntas")
                         .HasForeignKey("PerguntaId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -255,8 +259,13 @@ namespace DakiApp.repository.Migrations
             modelBuilder.Entity("DakiApp.domain.Entities.RespostasDomain", b =>
                 {
                     b.HasOne("DakiApp.domain.Entities.PerguntasDomain", "Pergunta")
-                        .WithMany()
+                        .WithMany("Respostas")
                         .HasForeignKey("PerguntaId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DakiApp.domain.Entities.QuestionariosDomain", "Questionario")
+                        .WithMany("Resposta")
+                        .HasForeignKey("QuestionarioId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DakiApp.domain.Entities.UsuariosDomain", "Usuario")

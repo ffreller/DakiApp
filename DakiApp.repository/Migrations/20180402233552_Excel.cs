@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DakiApp.repository.Migrations
 {
-    public partial class RespostasOK : Migration
+    public partial class Excel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,6 +70,27 @@ namespace DakiApp.repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Alternativas",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Conteudo = table.Column<string>(maxLength: 100, nullable: false),
+                    DataCriacao = table.Column<DateTime>(nullable: false),
+                    PerguntaId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Alternativas", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Alternativas_Perguntas_PerguntaId",
+                        column: x => x.PerguntaId,
+                        principalTable: "Perguntas",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "QuestionarioPerguntas",
                 columns: table => new
                 {
@@ -102,6 +123,7 @@ namespace DakiApp.repository.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Autorizacao = table.Column<bool>(nullable: true),
                     Contato = table.Column<string>(maxLength: 100, nullable: false),
                     Data = table.Column<string>(maxLength: 100, nullable: false),
                     DataCriacao = table.Column<DateTime>(nullable: false),
@@ -109,6 +131,7 @@ namespace DakiApp.repository.Migrations
                     Endereco = table.Column<string>(maxLength: 100, nullable: false),
                     Tipo = table.Column<string>(maxLength: 60, nullable: false),
                     Titulo = table.Column<string>(maxLength: 200, nullable: false),
+                    UrlImagem = table.Column<string>(maxLength: 1000, nullable: false),
                     UsuarioId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -130,6 +153,7 @@ namespace DakiApp.repository.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DataCriacao = table.Column<DateTime>(nullable: false),
                     PerguntaId = table.Column<int>(nullable: false),
+                    QuestionarioId = table.Column<int>(nullable: false),
                     Texto = table.Column<string>(nullable: true),
                     UsuarioId = table.Column<int>(nullable: false)
                 },
@@ -140,6 +164,12 @@ namespace DakiApp.repository.Migrations
                         name: "FK_Respostas_Perguntas_PerguntaId",
                         column: x => x.PerguntaId,
                         principalTable: "Perguntas",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Respostas_Questionarios_QuestionarioId",
+                        column: x => x.QuestionarioId,
+                        principalTable: "Questionarios",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -177,43 +207,10 @@ namespace DakiApp.repository.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Alternativas",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Conteudo = table.Column<string>(maxLength: 100, nullable: false),
-                    DataCriacao = table.Column<DateTime>(nullable: false),
-                    PerguntaId = table.Column<int>(nullable: false),
-                    RespostaId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Alternativas", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Alternativas_Perguntas_PerguntaId",
-                        column: x => x.PerguntaId,
-                        principalTable: "Perguntas",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Alternativas_Respostas_RespostaId",
-                        column: x => x.RespostaId,
-                        principalTable: "Respostas",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Alternativas_PerguntaId",
                 table: "Alternativas",
                 column: "PerguntaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Alternativas_RespostaId",
-                table: "Alternativas",
-                column: "RespostaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Anuncios_UsuarioId",
@@ -234,6 +231,11 @@ namespace DakiApp.repository.Migrations
                 name: "IX_Respostas_PerguntaId",
                 table: "Respostas",
                 column: "PerguntaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Respostas_QuestionarioId",
+                table: "Respostas",
+                column: "QuestionarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Respostas_UsuarioId",
@@ -263,19 +265,19 @@ namespace DakiApp.repository.Migrations
                 name: "QuestionarioPerguntas");
 
             migrationBuilder.DropTable(
+                name: "Respostas");
+
+            migrationBuilder.DropTable(
                 name: "UsuarioPermissoes");
 
             migrationBuilder.DropTable(
-                name: "Respostas");
+                name: "Perguntas");
 
             migrationBuilder.DropTable(
                 name: "Questionarios");
 
             migrationBuilder.DropTable(
                 name: "Permissoes");
-
-            migrationBuilder.DropTable(
-                name: "Perguntas");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
