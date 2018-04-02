@@ -67,6 +67,7 @@ namespace DakiApp.webapi.Controllers
                     _respostas.Add(new RespostasDomain(){
                         UsuarioId = resposta.UsuarioId,
                         PerguntaId = resposta.PerguntaId,
+                        QuestionarioId = resposta.QuestionarioId,
                         Texto = resposta.Texto
                         
                 });}

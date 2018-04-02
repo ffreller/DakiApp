@@ -38,8 +38,13 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                var respostas = _context.Database.ExecuteSqlCommand($"exec RetornaRespostasPorDataeIdQuestionario { data }, {questionarioId}").ToList();
-
+                var include =  _context.Respostas.Include(d => d.Pergunta).Include(d => d.Usuario);
+                var respostas = include.Select(a => a.QuestionarioId == questionarioId && a.DataCriacao >= data).ToList();
+                if (respostas == null)
+                {
+                    return NotFound("Id ou data incorreta");
+                }
+                // var respostas = _context.Database.ExecuteSqlCommand($"exec RetornaRespostasPorDataeIdQuestionario { data }, {questionarioId}").ToList();
                 return Ok(respostas);
             }
             catch(System.Exception ex)
