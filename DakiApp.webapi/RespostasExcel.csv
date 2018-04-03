@@ -1,0 +1,16 @@
+﻿Id da pergunta;Enunciado da pergunta;Id do questionário;Nome do usuário;Id do usuário;Texto de resposta
+1;Nome completo;1;teste;1;dasd
+2;Sexo;1;testeCliente;2;1
+1;Nome completo;1;testeCliente;2;vfds
+3;Nível de Escolaridade;1;testeCliente;2;9
+4;Data de nascimento;1;testeCliente;2;Thu Mar 29 2018 18:14:46 GMT-0300 (BRT)
+5;Endereço;1;testeCliente;2;fdsafads
+6;Telefone;1;testeCliente;2;(99)99999-9999
+7;Atividade que exerce;1;testeCliente;2;12
+2;Sexo;1;testeCliente;2;1
+1;Nome completo;1;testeCliente;2;vfds
+3;Nível de Escolaridade;1;testeCliente;2;9
+4;Data de nascimento;1;testeCliente;2;Thu Mar 29 2018 18:14:46 GMT-0300 (BRT)
+5;Endereço;1;testeCliente;2;fdsafads
+6;Telefone;1;testeCliente;2;(99)99999-9999
+7;Atividade que exerce;1;testeCliente;2;12

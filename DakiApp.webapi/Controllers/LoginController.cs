@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 namespace DakiApp.webapi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     public class LoginController:Controller
     {   
        DakiAppContext contexto;
@@ -26,6 +26,7 @@ namespace DakiApp.webapi.Controllers
 
        }
 
+        [Route("login")]
         [AllowAnonymous]
         [HttpPost]
         public object Login([FromBody]UsuariosDomain usuario, [FromServices]signingConfigurations signingConfigurations, [FromServices]TokenConfigurations tokenConfigurations)
@@ -89,7 +90,7 @@ namespace DakiApp.webapi.Controllers
             }
         }
 
-        [Route("api/logout")]
+        [Route("logout")]
         [AllowAnonymous]
         [HttpPost]
         public object Logout()

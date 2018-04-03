@@ -6,7 +6,11 @@ using DakiApp.repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using DakiApp.repository.Repositories;
+using Microsoft.Office.Interop.Excel;
 using System;
+using System.IO;
+using System.Text;
 
 namespace DakiApp.webapi.Controllers
 {
@@ -15,11 +19,14 @@ namespace DakiApp.webapi.Controllers
     {
         private readonly IBaseRepository<QuestionariosDomain> _repo;
 
+        private readonly IBaseRepository<RespostasDomain> _repo1;
+
         private readonly DakiAppContext _context;
 
-        public QuestionariosController(IBaseRepository<QuestionariosDomain> repo, DakiAppContext context)
+        public QuestionariosController(IBaseRepository<QuestionariosDomain> repo, DakiAppContext context, IBaseRepository<RespostasDomain> repo1)
         {
             _repo = repo;
+            _repo1 = repo1;
             _context = context;
         }
 
@@ -30,22 +37,35 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
         //[Authorize("Bearer",Roles="Admin")]
-        [HttpGet("{data}/{questionarioId}")]
-        [Route("excel/{data}/{questionarioId}")]
+        [HttpPost]
+        [Route("excel")]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
-        public IActionResult GetExcel(DateTime data, int questionarioId)
+        public IActionResult GetExcel([FromBody] ExcelDomain dados )
         {
+            StreamWriter excel = new StreamWriter("RespostasExcel.csv", false ,Encoding.UTF8);
             try
-            {
-                var include =  _context.Respostas.Include(d => d.Pergunta).ThenInclude(c => c.Enunciado).Include(d => d.Usuario).ThenInclude(c => c.Nome);
-                var respostas = include.Select(a => a.QuestionarioId == questionarioId && a.DataCriacao >= data).ToList();
+            {   string link = "http://ffreller-001-site1.dtempurl.com/webapi/RespostasExcel.csv";
+                var include = _repo1.Listar(new string[]{"Pergunta", "Usuario", "Questionario"});
+                var filtro = include.Where(a => a.QuestionarioId == dados.questionarioId && a.DataCriacao >= dados.data);
+                var respostas = filtro.Select(a => new{
+                    a.Texto, a.Pergunta.Enunciado, a.Pergunta.id, a.Usuario.Nome, a.UsuarioId, a.QuestionarioId  
+                });
                 if (respostas == null)
                 {
                     return NotFound("Id ou data incorreta");
                 }
-                // var respostas = _context.Database.ExecuteSqlCommand($"exec RetornaRespostasPorDataeIdQuestionario { data }, {questionarioId}").ToList();
-                return Ok(respostas);
+
+                excel.WriteLine("Id da pergunta;Enunciado da pergunta;Id do questionário;Nome do usuário;Id do usuário;Texto de resposta");
+
+                foreach (var x in respostas)
+                {
+                    excel.WriteLine(x.id + ";" + x.Enunciado + ";" + x.QuestionarioId + ";" + x.Nome + ";" + x.UsuarioId + ";" + x.Texto);
+                }
+
+                excel.Close();
+               
+                return Ok("Excel criado com sucesso, segue link:" + link);
             }
             catch(System.Exception ex)
             {
