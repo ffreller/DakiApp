@@ -38,7 +38,7 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                var include =  _context.Respostas.Include(d => d.Pergunta).Include(d => d.Usuario);
+                var include =  _context.Respostas.Include(d => d.Pergunta).ThenInclude(c => c.Enunciado).Include(d => d.Usuario).ThenInclude(c => c.Nome);
                 var respostas = include.Select(a => a.QuestionarioId == questionarioId && a.DataCriacao >= data).ToList();
                 if (respostas == null)
                 {

@@ -80,7 +80,7 @@
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
         </member>
-        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.GetExcel">
+        <member name="M:DakiApp.webapi.Controllers.QuestionariosController.GetExcel(System.DateTime,System.Int32)">
             <summary>
             Passa respostas do questionário para excel
             </summary>
