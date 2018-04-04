@@ -38,6 +38,10 @@ namespace DakiApp.webapi.Controllers
         public IActionResult Inserir([FromBody]UsuariosDomain Usuarios)
         {
             var users = _context.Usuarios;
+            if(Usuarios==null)
+            {
+                return BadRequest("Dados do usuário incorretos");
+            }
             foreach (var usua in users)
             {
                 if (Usuarios.Email == usua.Email)
@@ -86,14 +90,13 @@ namespace DakiApp.webapi.Controllers
         public IActionResult InserirAdmin([FromBody]UsuariosDomain Usuarios)
         {
             var users = _context.Usuarios;
-            var lista = new List<string>();
+            if(Usuarios==null)
+            {
+                return BadRequest("Dados do usuário incorretos");
+            }
             foreach (var usua in users)
             {
-                lista.Add(usua.Email);
-            }
-            foreach (var email in lista)
-            {
-                if (Usuarios.Email == email)
+                if (Usuarios.Email == usua.Email)
                 {
                     return BadRequest("E-mail já cadastrado");
                 }

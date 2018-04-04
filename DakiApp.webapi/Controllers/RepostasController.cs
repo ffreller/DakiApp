@@ -44,7 +44,6 @@ namespace DakiApp.webapi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
         /// <summary>
@@ -73,7 +72,6 @@ namespace DakiApp.webapi.Controllers
                         PerguntaId = resposta.PerguntaId,
                         QuestionarioId = resposta.QuestionarioId,
                         Texto = resposta.Texto
-
                     });
                 }
                 foreach (RespostasDomain resposta in listarespostas)
@@ -91,7 +89,6 @@ namespace DakiApp.webapi.Controllers
 
                 return Ok(Json("Realizado com sucesso"));
             }
-
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);

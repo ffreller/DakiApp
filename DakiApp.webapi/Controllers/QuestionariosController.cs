@@ -67,14 +67,12 @@ namespace DakiApp.webapi.Controllers
                 }
 
                 excel.WriteLine("Id da pergunta;Enunciado da pergunta;Id do questionário;Nome do usuário;Id do usuário;Texto de resposta");
-
                 foreach (var x in respostas)
                 {
                     excel.WriteLine(x.id + ";" + x.Enunciado + ";" + x.QuestionarioId + ";" + x.Nome + ";" + x.UsuarioId + ";" + x.Texto);
                 }
 
                 excel.Close();
-
                 return Ok("Excel criado com sucesso, segue link:" + link);
             }
             catch (System.Exception ex)
@@ -156,9 +154,6 @@ namespace DakiApp.webapi.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
-            // var includes = new string[]{ "QuestionarioPerguntas", "QuestionarioPerguntas.Pergunta.Alternativas"};
-            // return Ok(_repo.BuscarPorId(id,includes));
         }
 
 

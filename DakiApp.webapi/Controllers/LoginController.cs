@@ -26,6 +26,15 @@ namespace DakiApp.webapi.Controllers
 
         }
 
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <param name="usuario">Usuário</param>
+        /// <param name="signingConfigurations">SigningConfigurations</param>
+        /// <param name="tokenConfigurations">Token</param>
+        /// <returns> ok </returns>
+        /// <response code="200"> Retorna ok </response>
+        /// <response code="400"> Ocorreu um erro</response>
         [Route("login")]
         [AllowAnonymous]
         [HttpPost]
@@ -95,6 +104,12 @@ namespace DakiApp.webapi.Controllers
             }
         }
 
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns> ok </returns>
+        /// <response code="200"> Retorna ok </response>
+        /// <response code="400"> Ocorreu um erro</response>
         [Route("logout")]
         [AllowAnonymous]
         [HttpPost]

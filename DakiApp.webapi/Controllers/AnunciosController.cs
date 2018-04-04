@@ -134,7 +134,6 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-
         public IActionResult AtualizarAut(bool autorizacao, int id)
         {
             try
@@ -142,7 +141,7 @@ namespace DakiApp.webapi.Controllers
                 var anuncios = _repo.BuscarPorId(id);
                 if (anuncios == null)
                 {
-                    return NotFound("Id não encontrado");
+                    return NotFound("Id ou autorização não encontrado");
                 }
                 anuncios.Autorizacao = autorizacao;
                 return Ok(_repo.Atualizar(anuncios));
@@ -222,10 +221,12 @@ namespace DakiApp.webapi.Controllers
                 List<Claim> claims = HttpContext.User.Claims.ToList();
                 var userid = claims.FirstOrDefault(c => c.Type == "Id").Value.ToString();
                 var anuncios = _repo.BuscarPorId(id);
+                
                 if (anuncios == null)
                 {
                     return NotFound("Id não encontrado");
                 }
+
                 if (userid == anuncios.UsuarioId.ToString())
                     return Ok(_repo.Deletar(anuncios));
                 else

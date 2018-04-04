@@ -17,13 +17,6 @@ namespace DakiApp.webapi.Controllers
             _repo = repo;
         }
 
-        // [HttpGet]
-        // public IActionResult Listar()
-        // {
-        //     return Ok(_repo.Listar());
-        // }
-
-
         /// <summary>
         /// Retorna pergunta do id identificado
         /// </summary>
@@ -61,6 +54,5 @@ namespace DakiApp.webapi.Controllers
         //     var perguntas = _repo.BuscarPorId(id);
         //     return Ok(_repo.Atualizar(perguntas));
         // }
-
     }
 }
