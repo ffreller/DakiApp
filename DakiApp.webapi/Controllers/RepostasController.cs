@@ -50,7 +50,7 @@ namespace DakiApp.webapi.Controllers
         /// <summary>
         /// Cadastra nova resposta
         /// </summary>
-        /// <param name="RespostasDomain">Resposta</param>
+        /// <param name="Respostas">Resposta</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>

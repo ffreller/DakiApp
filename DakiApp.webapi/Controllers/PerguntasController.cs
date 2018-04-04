@@ -23,8 +23,20 @@ namespace DakiApp.webapi.Controllers
         //     return Ok(_repo.Listar());
         // }
 
-        [HttpGet ("{id}")]
+        
+        /// <summary>
+        /// Retorna pergunta do id identificado
+        /// </summary>
+        /// <param name="id">Id da pergunta</param>
+        /// <returns> ok </returns>
+        /// <response code="200"> Retorna ok </response>
+        /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404">Id não encontrado</response>
         [Authorize("Bearer",Roles="Cliente,Admin")]
+        [HttpGet ("{id}")]
+        [ProducesResponseType(typeof(int), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+
         public IActionResult BuscarPorId(int id)
         {
             return Ok(_repo.BuscarPorId(id, new string[] {"QuestionarioPerguntas.Questionario"}));

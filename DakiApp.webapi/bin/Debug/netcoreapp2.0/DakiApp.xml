@@ -5,7 +5,6 @@
     </assembly>
     <members>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.ListarAprovados">
-            NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS APROVADOS-----Autorizacao=true
             <summary>
             Lista todas os anúncios cadastrados e aprovados
             </summary>
@@ -14,7 +13,6 @@
             <response code="400"> Ocorreu um erro</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.ListarPendentes">
-            NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS PENDENTES DE APROVAÇÃO------Autorizacao = null
             <summary>
             Lista todas os anúncios cadastrados pendentes de aprovação
             </summary>
@@ -36,16 +34,18 @@
             <summary>
             Cadastra novo anúncio
             </summary>
-            <param name="AnunciosDomain">Anúncio</param>
+            <param name="Anuncios">Anúncio</param>
             <returns> ok </returns>
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
+            /// <response code="404">Anúncio não encontrado</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.AnunciosController.AtualizarAut(System.Boolean,System.Int32)">
             <summary>
             Atualiza a Autorização do anúncio
             </summary>
             <param name="id">Id do anúncio</param>
+            <param name="autorizacao">Autorização</param>
             <returns> ok </returns>
             <response code="200"> Retorna número de linhas alteradas</response>
             <response code="400"> Ocorreu um erro</response>
@@ -55,7 +55,7 @@
             <summary>
             Atualiza o anúncio indicado
             </summary>
-            <param name="id">Id do anúncio</param>
+            <param name="Anuncios">Anúncio</param>
             <returns> ok </returns>
             <response code="200"> Retorna uma lista de anúncios</response>
             <response code="400"> Ocorreu um erro</response>
@@ -75,25 +75,46 @@
             <summary>
             Cadastra novo usuário
             </summary>
-            <param name="UsuariosDomain">Usuário</param>
+            <param name="Usuarios">Usuário</param>
             <returns> ok </returns>
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.CadastroController.InserirAdmin(DakiApp.domain.Entities.UsuariosDomain)">
+            <summary>
+            Cadastra novo administrador
+            </summary>
+            <param name="Usuarios">Usuário</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+             <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.PerguntasController.BuscarPorId(System.Int32)">
+            <summary>
+            Retorna pergunta do id identificado
+            </summary>
+            <param name="id">Id da pergunta</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+            <response code="400"> Ocorreu um erro</response>
+            <response code="404">Id não encontrado</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.GetExcel(DakiApp.domain.Entities.ExcelDomain)">
             <summary>
             Passa respostas do questionário para excel
             </summary>
-            <returns> Lista de questionários</returns>
-            <response code="200"> Retorna uma lista de anúncios</response>
+            <returns> Arquivo excel</returns>
+            <param name="dados">Id do questionário e data</param>
+            <response code="200"> Retorna arquivo excel requisitado</response>
             <response code="400"> Ocorreu um erro</response>
+            <response code="404"> Id ou data incorreta </response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.Listar">
             <summary>
             Lista todas os questionários cadastrados
             </summary>
             <returns> Lista de questionários</returns>
-            <response code="200"> Retorna uma lista de anúncios</response>
+            <response code="200"> Retorna uma lista de questionários</response>
             <response code="400"> Ocorreu um erro</response>
         </member>
         <member name="M:DakiApp.webapi.Controllers.QuestionariosController.BuscarPorId(System.Int32)">
@@ -118,7 +139,7 @@
             <summary>
             Cadastra nova resposta
             </summary>
-            <param name="RespostasDomain">Resposta</param>
+            <param name="Respostas">Resposta</param>
             <returns> ok </returns>
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>

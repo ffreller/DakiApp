@@ -32,9 +32,11 @@ namespace DakiApp.webapi.Controllers
         /// <summary>
         /// Passa respostas do questionário para excel
         /// </summary>
-        /// <returns> Lista de questionários</returns>
-        /// <response code="200"> Retorna uma lista de anúncios</response>
+        /// <returns> Arquivo excel</returns>
+        /// <param name="dados">Id do questionário e data</param>
+        /// <response code="200"> Retorna arquivo excel requisitado</response>
         /// <response code="400"> Ocorreu um erro</response>
+        /// <response code="404"> Id ou data incorreta </response>
         //[Authorize("Bearer",Roles="Admin")]
         [HttpPost]
         [Route("excel")]
@@ -78,7 +80,7 @@ namespace DakiApp.webapi.Controllers
         /// Lista todas os questionários cadastrados
         /// </summary>
         /// <returns> Lista de questionários</returns>
-        /// <response code="200"> Retorna uma lista de anúncios</response>
+        /// <response code="200"> Retorna uma lista de questionários</response>
         /// <response code="400"> Ocorreu um erro</response>
         [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpGet]

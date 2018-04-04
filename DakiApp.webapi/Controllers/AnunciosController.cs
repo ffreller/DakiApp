@@ -23,7 +23,6 @@ namespace DakiApp.webapi.Controllers
             _context = context;
         }
         
-        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS APROVADOS-----Autorizacao=true
         /// <summary>
         /// Lista todas os anúncios cadastrados e aprovados
         /// </summary>
@@ -48,7 +47,6 @@ namespace DakiApp.webapi.Controllers
             }     
         }
 
-        /// NESSE MÉTODO, DEVEM SER MOSTRADOS APENAS OS ANUNCIOS PENDENTES DE APROVAÇÃO------Autorizacao = null
         /// <summary>
         /// Lista todas os anúncios cadastrados pendentes de aprovação
         /// </summary>
@@ -101,10 +99,11 @@ namespace DakiApp.webapi.Controllers
         /// <summary>
         /// Cadastra novo anúncio
         /// </summary>
-        /// <param name="AnunciosDomain">Anúncio</param>
+        /// <param name="Anuncios">Anúncio</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
+        /// /// <response code="404">Anúncio não encontrado</response>
         [Authorize("Bearer",Roles="Cliente,Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
@@ -125,6 +124,7 @@ namespace DakiApp.webapi.Controllers
         /// Atualiza a Autorização do anúncio
         /// </summary>
         /// <param name="id">Id do anúncio</param>
+        /// <param name="autorizacao">Autorização</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna número de linhas alteradas</response>
         /// <response code="400"> Ocorreu um erro</response>
@@ -134,7 +134,6 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-   
 
         public IActionResult AtualizarAut(bool autorizacao, int id)
         {
@@ -157,7 +156,7 @@ namespace DakiApp.webapi.Controllers
         /// <summary>
         /// Atualiza o anúncio indicado
         /// </summary>
-        /// <param name="id">Id do anúncio</param>
+        /// <param name="Anuncios">Anúncio</param>
         /// <returns> ok </returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
@@ -167,7 +166,6 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
-   
         public IActionResult Atualizar([FromBody] AnunciosDomain Anuncios)
         {
             try
