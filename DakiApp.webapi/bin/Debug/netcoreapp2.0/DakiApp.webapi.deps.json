@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "b3606bfa36809d57c9e554d5e7cbf4d866150c28"
+    "signature": "e3c8fc36ba548e79b03ab5f81a1aeef2a1ab70aa"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,6 @@
           "Microsoft.AspNet.WebApi.Cors": "5.2.5-preview1",
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.Office.Interop.Excel": "15.0.4795.1000",
           "Swashbuckle.AspNetCore": "1.1.0"
         },
         "runtime": {
@@ -2301,14 +2300,6 @@
         }
       },
       "Microsoft.NETCore.Targets/1.1.0": {},
-      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Excel.dll": {}
-        },
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Excel.dll": {}
-        }
-      },
       "Microsoft.Rest.ClientRuntime/2.3.8": {
         "dependencies": {
           "NETStandard.Library": "2.0.0",
@@ -3939,8 +3930,7 @@
           "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.EntityFrameworkCore.Relational": "2.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
-          "Microsoft.IdentityModel.Tokens": "5.2.1",
-          "Microsoft.Office.Interop.Excel": "15.0.4795.1000"
+          "Microsoft.IdentityModel.Tokens": "5.2.1"
         },
         "runtime": {
           "DakiApp.repository.dll": {}
@@ -5259,13 +5249,6 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
-    },
-    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
-      "path": "microsoft.office.interop.excel/15.0.4795.1000",
-      "hashPath": "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512"
     },
     "Microsoft.Rest.ClientRuntime/2.3.8": {
       "type": "package",

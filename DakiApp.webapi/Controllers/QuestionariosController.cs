@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using DakiApp.repository.Repositories;
-using Microsoft.Office.Interop.Excel;
 using System;
 using System.IO;
 using System.Text;
@@ -42,10 +41,12 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult GetExcel([FromBody] ExcelDomain dados )
-        {
-            StreamWriter excel = new StreamWriter("RespostasExcel.csv", false ,Encoding.UTF8);
+        {   
+            var nomearquivo = $"RespostasExcel-{DateTime.Now.ToString().Replace(':','-').Replace('/','-').Replace(' ','-')}.csv";
+            var caminhoarquivo = $"{Directory.GetCurrentDirectory()}\\{nomearquivo}";
+            StreamWriter excel = new StreamWriter(caminhoarquivo, false ,Encoding.UTF8);
             try
-            {   string link = "http://ffreller-001-site1.dtempurl.com/webapi/RespostasExcel.csv";
+            {   string link = "http://ffreller-001-site1.dtempurl.com/" + nomearquivo;
                 var include = _repo1.Listar(new string[]{"Pergunta", "Usuario", "Questionario"});
                 var filtro = include.Where(a => a.QuestionarioId == dados.questionarioId && a.DataCriacao >= dados.data);
                 var respostas = filtro.Select(a => new{
