@@ -60,18 +60,29 @@ namespace DakiApp.webapi.Controllers
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult Inserir([FromBody]List<RespostasDomain> Respostas)
         {
-            List<RespostasDomain> _respostas = new List<RespostasDomain>();
-            
+            List<RespostasDomain> listarespostas = new List<RespostasDomain>();
+            var listaPerguntaId = new List<int>();
+            var listaUsuarioId = new List<int>();
+            var respostascadastradas = _context.Respostas;
+
             try{
                 foreach (RespostasDomain resposta in Respostas){
-                    _respostas.Add(new RespostasDomain(){
+                    listarespostas.Add(new RespostasDomain(){
                         UsuarioId = resposta.UsuarioId,
                         PerguntaId = resposta.PerguntaId,
                         QuestionarioId = resposta.QuestionarioId,
                         Texto = resposta.Texto
                         
                 });}
-                foreach (RespostasDomain resposta in _respostas){
+                foreach (RespostasDomain resposta in listarespostas){
+                    foreach (var resp in respostascadastradas)
+                        {
+                            if(resp.QuestionarioId == resposta.QuestionarioId && resp.PerguntaId == resposta.PerguntaId)
+                            {
+                                return BadRequest("Resposta já cadastrada");
+                            }
+                        }
+
                     _repo.Inserir(resposta);
                 };
                 
