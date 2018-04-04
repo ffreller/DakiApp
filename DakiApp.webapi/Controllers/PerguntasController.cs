@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace DakiApp.webapi.Controllers
 {
     [Route("api/[controller]")]
-    public class PerguntasController: Controller
+    public class PerguntasController : Controller
     {
         private readonly IBaseRepository<PerguntasDomain> _repo;
 
@@ -23,7 +23,7 @@ namespace DakiApp.webapi.Controllers
         //     return Ok(_repo.Listar());
         // }
 
-        
+
         /// <summary>
         /// Retorna pergunta do id identificado
         /// </summary>
@@ -32,14 +32,14 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna ok </response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
-        [HttpGet ("{id}")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
 
         public IActionResult BuscarPorId(int id)
         {
-            return Ok(_repo.BuscarPorId(id, new string[] {"QuestionarioPerguntas.Questionario"}));
+            return Ok(_repo.BuscarPorId(id, new string[] { "QuestionarioPerguntas.Questionario" }));
         }
 
         // [HttpDelete ("{id}")]
@@ -61,6 +61,6 @@ namespace DakiApp.webapi.Controllers
         //     var perguntas = _repo.BuscarPorId(id);
         //     return Ok(_repo.Atualizar(perguntas));
         // }
-        
+
     }
 }

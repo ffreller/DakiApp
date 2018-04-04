@@ -14,7 +14,7 @@ using System.Text;
 namespace DakiApp.webapi.Controllers
 {
     [Route("api/[controller]")]
-    public class QuestionariosController: Controller
+    public class QuestionariosController : Controller
     {
         private readonly IBaseRepository<QuestionariosDomain> _repo;
 
@@ -42,17 +42,24 @@ namespace DakiApp.webapi.Controllers
         [Route("excel")]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
-        public IActionResult GetExcel([FromBody] ExcelDomain dados )
-        {   
-            var nomearquivo = $"RespostasExcel-{DateTime.Now.ToString().Replace(':','-').Replace('/','-').Replace(' ','-')}.csv";
+        public IActionResult GetExcel([FromBody] ExcelDomain dados)
+        {
+            var nomearquivo = $"RespostasExcel-{DateTime.Now.ToString().Replace(':', '-').Replace('/', '-').Replace(' ', '-')}.csv";
             var caminhoarquivo = $"{Directory.GetCurrentDirectory()}\\{nomearquivo}";
-            StreamWriter excel = new StreamWriter(caminhoarquivo, false ,Encoding.UTF8);
+            StreamWriter excel = new StreamWriter(caminhoarquivo, false, Encoding.UTF8);
             try
-            {   string link = "http://ffreller-001-site1.dtempurl.com/" + nomearquivo;
-                var include = _repo1.Listar(new string[]{"Pergunta", "Usuario", "Questionario"});
+            {
+                string link = "http://ffreller-001-site1.dtempurl.com/" + nomearquivo;
+                var include = _repo1.Listar(new string[] { "Pergunta", "Usuario", "Questionario" });
                 var filtro = include.Where(a => a.QuestionarioId == dados.questionarioId && a.DataCriacao >= dados.data);
-                var respostas = filtro.Select(a => new{
-                    a.Texto, a.Pergunta.Enunciado, a.Pergunta.id, a.Usuario.Nome, a.UsuarioId, a.QuestionarioId  
+                var respostas = filtro.Select(a => new
+                {
+                    a.Texto,
+                    a.Pergunta.Enunciado,
+                    a.Pergunta.id,
+                    a.Usuario.Nome,
+                    a.UsuarioId,
+                    a.QuestionarioId
                 });
                 if (respostas == null)
                 {
@@ -67,22 +74,22 @@ namespace DakiApp.webapi.Controllers
                 }
 
                 excel.Close();
-               
+
                 return Ok("Excel criado com sucesso, segue link:" + link);
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-        
+
         /// <summary>
         /// Lista todas os questionários cadastrados
         /// </summary>
         /// <returns> Lista de questionários</returns>
         /// <response code="200"> Retorna uma lista de questionários</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -92,7 +99,7 @@ namespace DakiApp.webapi.Controllers
             {
                 return Ok(_repo.Listar());
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -106,16 +113,16 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma questionário, com seus detalhes</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
-        [HttpGet ("{id}")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(JsonResult), 200)]
         [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult BuscarPorId(int id)
         {
             try
-            { 
-                var questionario =  _context
+            {
+                var questionario = _context
                 .Questionarios
                 .Include(d => d.QuestionarioPerguntas)
                 .ThenInclude(d => d.Pergunta.Alternativas)
@@ -124,16 +131,19 @@ namespace DakiApp.webapi.Controllers
                 {
                     return NotFound("Id não encontrado");
                 }
-            
-                var respostaJson = new {
+
+                var respostaJson = new
+                {
                     questionario.id,
                     questionario.Nome,
-                    perguntas = questionario.QuestionarioPerguntas.Select(d => new {
+                    perguntas = questionario.QuestionarioPerguntas.Select(d => new
+                    {
                         d.Pergunta.id,
                         d.Pergunta.TipoResposta,
                         d.Pergunta.Enunciado,
                         d.Pergunta.Obrigatoria,
-                        Alternativas = d.Pergunta.Alternativas.Select(g => new {
+                        Alternativas = d.Pergunta.Alternativas.Select(g => new
+                        {
                             g.id,
                             g.Conteudo,
                             g.DataCriacao,
@@ -142,7 +152,7 @@ namespace DakiApp.webapi.Controllers
                 };
                 return Ok(respostaJson);
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -151,7 +161,7 @@ namespace DakiApp.webapi.Controllers
             // return Ok(_repo.BuscarPorId(id,includes));
         }
 
-        
+
 
         // /// <summary>
         // /// Cadastra novo questionário

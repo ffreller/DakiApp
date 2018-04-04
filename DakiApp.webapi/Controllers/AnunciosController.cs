@@ -11,7 +11,7 @@ using System.Security.Claims;
 namespace DakiApp.webapi.Controllers
 {
     [Route("api/[controller]")]
-    public class AnunciosController: Controller
+    public class AnunciosController : Controller
     {
         private readonly IBaseRepository<AnunciosDomain> _repo;
 
@@ -22,14 +22,14 @@ namespace DakiApp.webapi.Controllers
             _repo = repo;
             _context = context;
         }
-        
+
         /// <summary>
         /// Lista todas os anúncios cadastrados e aprovados
         /// </summary>
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
         [HttpGet]
         [Route("aprovados")]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
@@ -38,13 +38,13 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                var anuncios =  _context.Anuncios.Where(d => d.Autorizacao == true);
+                var anuncios = _context.Anuncios.Where(d => d.Autorizacao == true);
                 return Ok(anuncios);
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
-            }     
+            }
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer",Roles="Admin")]
+        [Authorize("Bearer", Roles = "Admin")]
         [HttpGet]
         [Route("pendentes")]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
@@ -62,13 +62,13 @@ namespace DakiApp.webapi.Controllers
         {
             try
             {
-                var anuncios =  _context.Anuncios.Where(d => d.Autorizacao == null);
+                var anuncios = _context.Anuncios.Where(d => d.Autorizacao == null);
                 return Ok(anuncios);
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
-            }     
+            }
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma anúncio, com seus detalhes</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
-        [HttpGet ("{id}")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(JsonResult), 200)]
         [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 400)]
@@ -90,7 +90,7 @@ namespace DakiApp.webapi.Controllers
             {
                 return Ok(_repo.BuscarPorId(id));
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -104,7 +104,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
         /// /// <response code="404">Anúncio não encontrado</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -114,10 +114,10 @@ namespace DakiApp.webapi.Controllers
             {
                 return Ok(_repo.Inserir(Anuncios));
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
-            }               
+            }
         }
 
         /// <summary>
@@ -129,8 +129,8 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna número de linhas alteradas</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer",Roles="Admin")]
-        [HttpPut ("{id}/{autorizacao}")]
+        [Authorize("Bearer", Roles = "Admin")]
+        [HttpPut("{id}/{autorizacao}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
@@ -147,7 +147,7 @@ namespace DakiApp.webapi.Controllers
                 anuncios.Autorizacao = autorizacao;
                 return Ok(_repo.Atualizar(anuncios));
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -161,8 +161,8 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]
-        [HttpPut ("{id}")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
@@ -172,14 +172,14 @@ namespace DakiApp.webapi.Controllers
             {
                 List<Claim> claims = HttpContext.User.Claims.ToList();
                 var userid = claims.FirstOrDefault(c => c.Type == "Id").Value.ToString();
-            
+
                 var anuncios = _repo.BuscarPorId(Anuncios.id);
                 if (anuncios == null)
                 {
                     return NotFound("Id não encontrado");
                 }
 
-                if(userid == anuncios.UsuarioId.ToString())
+                if (userid == anuncios.UsuarioId.ToString())
                 {
                     anuncios.Descricao = Anuncios.Descricao;
                     anuncios.Autorizacao = Anuncios.Autorizacao;
@@ -196,7 +196,7 @@ namespace DakiApp.webapi.Controllers
                 else
                     return BadRequest("Usuário não autorizado");
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -210,29 +210,31 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna Ok</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer",Roles="Cliente,Admin")]        
-        [HttpDelete ("{id}")]
+        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
         public IActionResult Deletar(int id)
         {
-            try{
+            try
+            {
                 List<Claim> claims = HttpContext.User.Claims.ToList();
                 var userid = claims.FirstOrDefault(c => c.Type == "Id").Value.ToString();
                 var anuncios = _repo.BuscarPorId(id);
-                if (anuncios == null){
+                if (anuncios == null)
+                {
                     return NotFound("Id não encontrado");
                 }
-                if(userid == anuncios.UsuarioId.ToString())
+                if (userid == anuncios.UsuarioId.ToString())
                     return Ok(_repo.Deletar(anuncios));
                 else
                     return BadRequest("Usuário não autorizado");
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
-            }   
+            }
         }
     }
 }

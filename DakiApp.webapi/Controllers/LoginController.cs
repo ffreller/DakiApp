@@ -16,31 +16,33 @@ using Microsoft.IdentityModel.Tokens;
 namespace DakiApp.webapi.Controllers
 {
     [Route("api/")]
-    public class LoginController:Controller
-    {   
-       DakiAppContext contexto;
+    public class LoginController : Controller
+    {
+        DakiAppContext contexto;
 
-       public LoginController(DakiAppContext contexto_)
-       {
-           contexto = contexto_;
+        public LoginController(DakiAppContext contexto_)
+        {
+            contexto = contexto_;
 
-       }
+        }
 
         [Route("login")]
         [AllowAnonymous]
         [HttpPost]
         public object Login([FromBody]UsuariosDomain usuario, [FromServices]signingConfigurations signingConfigurations, [FromServices]TokenConfigurations tokenConfigurations)
         {
-            try{
+            try
+            {
                 HashPassword geradorHash = new HashPassword();
                 var hash = geradorHash.GenerateHash(usuario.Senha);
-                if(hash != null){
+                if (hash != null)
+                {
                     usuario.Senha = hash;
                 }
-                
+
                 UsuariosDomain user = contexto.Usuarios.Include("UsuarioPermissoes").Include("UsuarioPermissoes.Permissao").FirstOrDefault(c => c.Email == usuario.Email && c.Senha == usuario.Senha);
 
-                if(user != null)
+                if (user != null)
                 {
                     ClaimsIdentity identity = new ClaimsIdentity(new GenericIdentity(user.id.ToString(), "Login"), new[] {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
@@ -51,15 +53,16 @@ namespace DakiApp.webapi.Controllers
                     });
 
                     var claims = new List<Claim>();
-                    foreach(var item in user.UsuarioPermissoes)
+                    foreach (var item in user.UsuarioPermissoes)
                     {
                         claims.Add(new Claim(ClaimTypes.Role, item.Permissao.Nome));
                     }
-                    
+
                     identity.AddClaims(claims);
-                
+
                     var handler = new JwtSecurityTokenHandler();
-                    var securityToken = handler.CreateToken(new SecurityTokenDescriptor{
+                    var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                    {
                         Issuer = tokenConfigurations.Issuer,
                         Audience = tokenConfigurations.Audience,
                         SigningCredentials = signingConfigurations.SigningCredentials,
@@ -68,23 +71,25 @@ namespace DakiApp.webapi.Controllers
 
                     var token = handler.WriteToken(securityToken);
 
-                    var respostaJson = new {
+                    var respostaJson = new
+                    {
                         user.id,
                         user.Nome,
-                        permissoes = user.UsuarioPermissoes.Select(d => new {
+                        permissoes = user.UsuarioPermissoes.Select(d => new
+                        {
                             d.Permissao.Nome
-                            }).ToArray()                  
+                        }).ToArray()
                     };
-                    
-                    var retorno = new{atutenticacao = true,  acessToken = token, message = "OK", usuario = respostaJson};
+
+                    var retorno = new { atutenticacao = true, acessToken = token, message = "OK", usuario = respostaJson };
 
                     return Ok(retorno);
                 }
 
-                var retornoerro = new {autenticacao = false, message = "Falha na Autenticação"};
+                var retornoerro = new { autenticacao = false, message = "Falha na Autenticação" };
                 return BadRequest(retornoerro);
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -98,20 +103,21 @@ namespace DakiApp.webapi.Controllers
             try
             {
                 var handler = new JwtSecurityTokenHandler();
-                var securityToken = handler.CreateToken(new SecurityTokenDescriptor{
-                Issuer = null,
-                Audience = null,
-                SigningCredentials = null,
-                Subject = null,
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                {
+                    Issuer = null,
+                    Audience = null,
+                    SigningCredentials = null,
+                    Subject = null,
                 });
 
                 var token = handler.WriteToken(securityToken);
                 return Ok(token);
             }
-            catch(SystemException ex)
+            catch (SystemException ex)
             {
                 return BadRequest(ex.Message);
             }
-        }  
+        }
     }
 }
