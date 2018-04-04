@@ -97,10 +97,5 @@ namespace DakiApp.repository.Repositories
                 throw new Exception(ex.Message);
             }
         }
-
-        public IEnumerable<UsuariosDomain> Find(int ID)
-        {
-           return _dbContext.Usuarios.Where(c => c.id == ID);      
-        }
     }
 }
