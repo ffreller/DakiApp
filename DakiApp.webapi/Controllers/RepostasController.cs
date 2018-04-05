@@ -60,31 +60,30 @@ namespace DakiApp.webapi.Controllers
         public IActionResult Inserir([FromBody]List<RespostasDomain> Respostas)
         {
             List<RespostasDomain> listarespostas = new List<RespostasDomain>();
-            var respostascadastradas = _context.Respostas;
-
+            var respostascadastradas = _context.Respostas.Select(a => new{a.UsuarioId, a.PerguntaId});
+            
             try
             {
                 foreach (RespostasDomain resposta in Respostas)
-                {
+                {   
+                    
                     listarespostas.Add(new RespostasDomain()
-                    {
+                    {   
+                        DataCriacao = resposta.DataCriacao,
                         UsuarioId = resposta.UsuarioId,
                         PerguntaId = resposta.PerguntaId,
                         QuestionarioId = resposta.QuestionarioId,
                         Texto = resposta.Texto
                     });
                 }
-                foreach (RespostasDomain resposta in listarespostas)
+                foreach (RespostasDomain resposta2 in listarespostas)
                 {
-                    foreach (var resp in respostascadastradas)
+                    var verificacao = respostascadastradas.Where(a => a.UsuarioId == resposta2.UsuarioId && a.PerguntaId == resposta2.PerguntaId);
+                    if (verificacao != null)
                     {
-                        if (resp.QuestionarioId == resposta.QuestionarioId && resp.PerguntaId == resposta.PerguntaId)
-                        {
-                            return BadRequest("Resposta: " + "'" + resposta.Pergunta.Enunciado + "'" + " já cadastrada para esse usuário");
-                        }
+                        return BadRequest("Resposta da pergunta: " + "'" + resposta2.Pergunta.Enunciado + "'" + " já cadastrada para esse usuário");
                     }
-
-                    _repo.Inserir(resposta);
+                    _repo.Inserir(resposta2);
                 };
 
                 return Ok(Json("Realizado com sucesso"));
