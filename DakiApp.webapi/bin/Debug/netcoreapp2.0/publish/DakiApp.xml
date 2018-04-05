@@ -89,6 +89,25 @@
             <response code="200"> Retorna ok </response>
              <response code="400"> Ocorreu um erro</response>
         </member>
+        <member name="M:DakiApp.webapi.Controllers.LoginController.Login(DakiApp.domain.Entities.UsuariosDomain,DakiApp.webapi.signingConfigurations,DakiApp.domain.Entities.TokenConfigurations)">
+            <summary>
+            Login
+            </summary>
+            <param name="usuario">Usuário</param>
+            <param name="signingConfigurations">SigningConfigurations</param>
+            <param name="tokenConfigurations">Token</param>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
+        <member name="M:DakiApp.webapi.Controllers.LoginController.Logout">
+            <summary>
+            Logout
+            </summary>
+            <returns> ok </returns>
+            <response code="200"> Retorna ok </response>
+            <response code="400"> Ocorreu um erro</response>
+        </member>
         <member name="M:DakiApp.webapi.Controllers.PerguntasController.BuscarPorId(System.Int32)">
             <summary>
             Retorna pergunta do id identificado
