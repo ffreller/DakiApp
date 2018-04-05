@@ -53,35 +53,24 @@ namespace DakiApp.webapi.Controllers
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Cliente")]
+        // [Authorize("Bearer", Roles = "Cliente, Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
         public IActionResult Inserir([FromBody]List<RespostasDomain> Respostas)
         {
             List<RespostasDomain> listarespostas = new List<RespostasDomain>();
-            var respostascadastradas = _context.Respostas.Select(a => new{a.UsuarioId, a.PerguntaId});
+            var respostascadastradas = _context.Respostas.Include("Pergunta").ToList();
             
             try
             {
-                foreach (RespostasDomain resposta in Respostas)
-                {   
-                    
-                    listarespostas.Add(new RespostasDomain()
-                    {   
-                        DataCriacao = resposta.DataCriacao,
-                        UsuarioId = resposta.UsuarioId,
-                        PerguntaId = resposta.PerguntaId,
-                        QuestionarioId = resposta.QuestionarioId,
-                        Texto = resposta.Texto
-                    });
-                }
-                foreach (RespostasDomain resposta2 in listarespostas)
+                foreach (RespostasDomain resposta2 in Respostas)
                 {
-                    var verificacao = respostascadastradas.Where(a => a.UsuarioId == resposta2.UsuarioId && a.PerguntaId == resposta2.PerguntaId);
+                    var verificacao = respostascadastradas.FirstOrDefault(a => a.UsuarioId == resposta2.UsuarioId && a.PerguntaId == resposta2.PerguntaId);                                        
                     if (verificacao != null)
-                    {
-                        return BadRequest("Resposta da pergunta: " + "'" + resposta2.Pergunta.Enunciado + "'" + " já cadastrada para esse usuário");
+                    {                      
+                        string msgerro = "Resposta da pergunta: '" + verificacao.Pergunta.Enunciado + "' já cadastrada para esse usuário";
+                        return BadRequest(msgerro);
                     }
                     _repo.Inserir(resposta2);
                 };
