@@ -11,7 +11,7 @@
 --  ,(getdate(),'Endereço','1','4')
 --  ,(getdate(),'Telefone','1','4')
 --  ,(getdate(),'Atividade que exerce','1','1')
---  ,(getdate(), 'Se possui vínculo empregatício, é permanente ou temporário?','1', '2')
+--  ,(getdate(), 'Se possui vínculo empregatício, é permanente ou temporário?','0', '2')
 
 --  insert into QuestionarioPerguntas values 
 --   (getdate(),'1', '1')
@@ -21,6 +21,7 @@
 --  ,(getdate(),'5', '1')
 --  ,(getdate(),'6', '1')
 --  ,(getdate(),'7', '1')
+--  ,(getdate(),'8', '1')
 
 --  select * from QuestionarioPerguntas
 
