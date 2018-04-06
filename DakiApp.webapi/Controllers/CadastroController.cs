@@ -83,7 +83,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Admin")]
+        [Authorize("Bearer",Roles= "Admin")]
         [HttpPost("admin")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]

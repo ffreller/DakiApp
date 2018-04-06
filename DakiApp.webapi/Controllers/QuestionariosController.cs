@@ -87,7 +87,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de questionários</returns>
         /// <response code="200"> Retorna uma lista de questionários</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<QuestionariosDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -111,7 +111,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma questionário, com seus detalhes</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(JsonResult), 200)]
         [ProducesResponseType(typeof(string), 404)]

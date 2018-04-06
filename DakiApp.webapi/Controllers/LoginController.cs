@@ -51,7 +51,7 @@ namespace DakiApp.webapi.Controllers
                 }
 
                 UsuariosDomain user = contexto.Usuarios.Include("UsuarioPermissoes").Include("UsuarioPermissoes.Permissao").FirstOrDefault(c => c.Email == usuario.Email && c.Senha == usuario.Senha);
-                List<RespostasDomain> respostas = contexto.Respostas.Where(a => a.UsuarioId == user.id);
+                List<RespostasDomain> respostas = contexto.Respostas.Where(a => a.UsuarioId == user.id).ToList();
 
                 if (user != null)
                 {

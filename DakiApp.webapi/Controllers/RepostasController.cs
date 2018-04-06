@@ -30,7 +30,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de respotass</returns>
         /// <response code="200"> Retorna uma lista de Respostas</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Admin")]
+        [Authorize("Bearer",Roles= "Admin")]
         [HttpGet]
         [ProducesResponseType(typeof(List<RespostasDomain>), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -53,7 +53,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> ok </returns>
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Cliente, Admin")]
+        [Authorize("Bearer",Roles= "Cliente, Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -66,12 +66,12 @@ namespace DakiApp.webapi.Controllers
             {
                 foreach (RespostasDomain resposta2 in Respostas)
                 {
-                    var verificacao = respostascadastradas.FirstOrDefault(a => a.UsuarioId == resposta2.UsuarioId && a.PerguntaId == resposta2.PerguntaId);                                        
-                    if (verificacao != null)
-                    {                      
-                        string msgerro = "Resposta da pergunta: '" + verificacao.Pergunta.Enunciado + "' já cadastrada para esse usuário";
-                        return BadRequest(msgerro);
-                    }
+                    // var verificacao = respostascadastradas.FirstOrDefault(a => a.UsuarioId == resposta2.UsuarioId && a.PerguntaId == resposta2.PerguntaId);                                        
+                    // if (verificacao != null)
+                    // {                      
+                    //     string msgerro = "Resposta da pergunta: '" + verificacao.Pergunta.Enunciado + "' já cadastrada para esse usuário";
+                    //     return BadRequest(msgerro);
+                    // }
                     _repo.Inserir(resposta2);
                 };
 

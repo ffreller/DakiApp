@@ -29,7 +29,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpGet]
         [Route("aprovados")]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
@@ -53,7 +53,7 @@ namespace DakiApp.webapi.Controllers
         /// <returns> Lista de anúncios</returns>
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
-        [Authorize("Bearer", Roles = "Admin")]
+        [Authorize("Bearer",Roles= "Admin")]
         [HttpGet]
         [Route("pendentes")]
         [ProducesResponseType(typeof(List<AnunciosDomain>), 200)]
@@ -79,7 +79,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma anúncio, com seus detalhes</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(JsonResult), 200)]
         [ProducesResponseType(typeof(string), 404)]
@@ -104,7 +104,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna ok </response>
         ///  <response code="400"> Ocorreu um erro</response>
         /// /// <response code="404">Anúncio não encontrado</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -129,7 +129,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna número de linhas alteradas</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer", Roles = "Admin")]
+        [Authorize("Bearer",Roles= "Admin")]
         [HttpPut("{id}/{autorizacao}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -160,7 +160,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna uma lista de anúncios</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
@@ -209,7 +209,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna Ok</response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404"> Id não encontrado</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]

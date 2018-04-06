@@ -25,7 +25,7 @@ namespace DakiApp.webapi.Controllers
         /// <response code="200"> Retorna ok </response>
         /// <response code="400"> Ocorreu um erro</response>
         /// <response code="404">Id não encontrado</response>
-        [Authorize("Bearer", Roles = "Cliente,Admin")]
+        [Authorize("Bearer",Roles= "Cliente,Admin")]
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(int), 200)]
         [ProducesResponseType(typeof(string), 400)]
