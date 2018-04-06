@@ -49,7 +49,7 @@ namespace DakiApp.webapi.Controllers
             StreamWriter excel = new StreamWriter(caminhoarquivo, false, Encoding.UTF8);
             try
             {
-                string link = "http://ffreller-001-site1.dtempurl.com/" + nomearquivo;
+                string link = "ftp://ftp.site4now.net/" + nomearquivo;
                 var include = _repo1.Listar(new string[] { "Pergunta", "Usuario", "Questionario" });
                 var filtro = include.Where(a => a.QuestionarioId == dados.questionarioId && a.DataCriacao >= dados.data);
                 var respostas = filtro.Select(a => new
